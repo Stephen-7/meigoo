@@ -1,6 +1,6 @@
 <template>
   <div class="view">
-    <cpGlobalTitle :isTitle="'购物车'"/>
+    <cpGlobalTitle :isBack="true" :isTitle="'购物车'"/>
   </div>
 </template>
 
