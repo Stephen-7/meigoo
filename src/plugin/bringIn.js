@@ -2,6 +2,7 @@
 import Vue from 'vue'
 
 import {
+  Stepper,
   Cell,
   CellGroup,
   Checkbox,
@@ -35,6 +36,7 @@ Vue.use(Lazyload, {
   preload: 100,
   attempt: 1
 }).use(NavBar)
+  .use(Stepper )
   .use(Checkbox)
   .use(CheckboxGroup)
   .use(Cell)

@@ -1,8 +1,9 @@
 <template>
   <div class="view">
-    <van-cell title="关于我们" is-link />
-    <van-cell title="隐私政策" is-link />
-    <van-cell title="注销账号" is-link />
+    <cpGlobalTitle :isBack="true" :isTitle="'设置'"/>
+    <van-cell style="height: 13vw;margin-top: 2.67vw" title="关于我们" is-link />
+    <van-cell style="height: 13vw" title="隐私政策" is-link />
+    <van-cell style="height: 13vw" title="注销账号" is-link />
     <div class="out" @click="outUp">退出登录</div>
   </div>
 </template>
@@ -39,6 +40,6 @@
     font-size: 4vw;
     font-weight: 400;
     color: #666666;
-    margin-top: 4.7vw;
+    margin-top: 4.27vw;
   }
 </style>

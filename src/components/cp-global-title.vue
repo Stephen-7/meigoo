@@ -4,7 +4,9 @@
       <p class="cp-back" v-show="isBack" @click="$router.back()"></p>
     </div>
     <div class="cp-content">{{isTitle}}</div>
-    <div class="cp-right"></div>
+    <div class="cp-right">
+      <slot name="rightBut"></slot>
+    </div>
   </div>
 </template>
 
@@ -47,7 +49,7 @@
     width: 7vw;
     height: 7vw;
     background-image: url("../assets/image/icon_back_24_black@2x.png");
-    background-size: 6.4vw 6.4vw;
+    background-size: 6vw 6vw;
     background-repeat: no-repeat;
     background-position: center center;
   }

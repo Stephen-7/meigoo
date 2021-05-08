@@ -74,8 +74,8 @@
         }
         if (this.codeState) {
           for (let i = 0; i < 6; i++) {
-            let randomI = Math.floor(Math.random() * 10);
-            num += codeArr[randomI];
+            let randomIndex = Math.floor(Math.random() * 10);
+            num += codeArr[randomIndex];
           }
           setTimeout(() => {
             this.code = num;
