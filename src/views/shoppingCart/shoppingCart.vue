@@ -30,8 +30,9 @@
             </p>
             <div class="contentRightAttributes">
               <p class="contentRightAttributesPrice">￥{{item.price}}</p>
-              <van-stepper v-model="item.quantity" input-width="45px" @change="quantityChange(item)"
-                           button-size="25px"/>
+              <van-stepper v-model="item.quantity" disable-input input-width="45px" button-size="25px"
+                           @minus="quantityIndex(-1)"
+                           @plus="quantityIndex(1)" @change="quantityChange(item)"/>
             </div>
           </div>
         </div>
@@ -41,12 +42,13 @@
     <div class="bottomBar">
       <div class="bottomBarLeft">
         <van-checkbox icon-size="20px" checked-color="#E2B575" v-model="allChecked"
-                      @click.stop="allChange"></van-checkbox>
+                      @click="allChange"></van-checkbox>
         <span class="bottomBarLeftName">全选</span>
       </div>
       <div class="bottomBarRight">
         <p class="bottomBarRightPrice">合计<span class="bottomBarRightContent">¥{{allPrice}}</span></p>
-        <p class="bottomBarRightBuyNow" :class="{'bottomBarRightNoData':listArr.length === 0}" v-show="!isEdit" @click.stop="toDetermineOrder">立即购买</p>
+        <p class="bottomBarRightBuyNow" :class="{'bottomBarRightNoData':listArr.length === 0}" v-show="!isEdit"
+           @click.stop="toDetermineOrder">立即购买</p>
         <p class="bottomBarRightDelete" v-show="isEdit" @click.stop="isDelete">删除</p>
       </div>
     </div>
@@ -56,7 +58,9 @@
 </template>
 
 <script>
+  let index = null;
   import {Toast} from 'vant';
+
   export default {
     name: "shoppingCart",
     data() {
@@ -64,7 +68,6 @@
         isEdit: false,
         checked: false,
         allChecked: false,
-        allNum: 0,
         allPrice: 0,
         listArr: [
           {
@@ -134,18 +137,18 @@
       },
 
       listChange(item) {
-        item.businessChecked ? this.shoptrue(item) : this.shopfalse(item)
+        item.businessChecked ? this.shopTrue(item) : this.shopFalse(item)
       },
 
-      //循环店铺中的商品，先筛选出目前没选中的商品，给它执行choosetrue函数
-      shoptrue(item) {
+      //循环店铺中的商品，先筛选出目前没选中的商品，给它执行choSeTrue函数
+      shopTrue(item) {
         item.productList.forEach((pro) => {
           pro.checked === false && this.choSeTrue(item, pro)
         })
       },
 
-      //循环店铺中的商品，先筛选出目前被选中的商品，给它执行choosefalse函数
-      shopfalse(item) {
+      //循环店铺中的商品，先筛选出目前被选中的商品，给它执行choSeFalse函数
+      shopFalse(item) {
         item.productList.forEach((pro) => {
           pro.checked === true && this.choSeFalse(item, pro)
         })
@@ -159,12 +162,15 @@
       //将商品选中状态改为true
       choSeTrue(item, pro) {
         pro.checked = true;
-        let length = item.productList.filter(item => {
+        let listLength = this.listArr.length;
+        let itemLength = item.productList.filter(item => {
           return item.checked === true
         }).length;
-        length === item.productList.length ? item.businessChecked = true : '';
-        // let listLength = this.listArr.length;
-        // item.businessChecked ? (++this.allNum === listLength ? this.allChecked = true : this.allChecked = false) : false;
+        itemLength === item.productList.length ? item.businessChecked = true : item.businessChecked = false;
+        let businessLength = this.listArr.filter(item => {
+          return item.businessChecked === true
+        }).length;
+        listLength === businessLength ? this.allChecked = true : this.allChecked = false;
         this.allPrice += pro.prices * pro.quantity;
       },
 
@@ -174,35 +180,54 @@
         if (item.businessChecked) {
           item.businessChecked = false;
         }
-        --this.allNum;//并且选中店铺数量-1
-        this.allChecked = false;//无论之前全选的状态，将其改为false就行
+        this.allChecked = false;
         this.allPrice -= pro.prices * pro.quantity;
       },
-
 
       //全选商品的选中按钮
       allChange() {
         this.allChecked = !this.allChecked;
-        this.allChecked ? this.listArr.forEach((item) => this.shoptrue(item)) : this.listArr.forEach((item) => this.shopfalse(item))
+        console.log(this.allChecked = !this.allChecked);
+        this.allChecked ? this.listArr.forEach((item) => this.shopTrue(item)) : this.listArr.forEach((item) => this.shopFalse(item))
+      },
+
+      quantityIndex(e) {
+        index = e;
       },
 
       //数量加减和金额计算
       quantityChange(pro) {
-        // if (pro.checked) {
-        //   this.allPrice += pro.prices * pro.quantity;
-        // } else {
-        //   this.allPrice -= pro.prices * pro.quantity;
-        // }
+        switch (index) {
+          case  -1:
+            if (pro.checked) {
+              this.allPrice -= pro.prices;
+            }
+            break;
+          case  1:
+            if (pro.checked) {
+              this.allPrice += pro.prices;
+            }
+            break;
+        }
       },
 
-      toDetermineOrder(){
-        console.log("跳转确认订单");
+      toDetermineOrder() {
+        if (this.allChecked) {
+          this.$router.push('/confirmOrder')
+        } else {
+          Toast('请选择商品');
+        }
       },
 
-      isDelete(){
-        Toast('删除并且清空');
-        this.listArr = [];
-        this.isEdit = false;
+      isDelete() {
+        if (this.allChecked) {
+          this.listArr = [];
+          this.allPrice = 0;
+          this.isEdit = false;
+          this.allChecked = false;
+        } else {
+          Toast('请选择商品');
+        }
       },
     },
     mounted() {
@@ -216,6 +241,7 @@
     width: 100%;
     overflow: scroll;
     padding-top: 12.5vw;
+    padding-bottom: 3.2vw;
     height: calc(100vh - 14vw);
     background-color: #F8F8F8;
     display: flex;
@@ -454,7 +480,7 @@
     background-color: #E2B575;
   }
 
-  .bottomBarRightNoData{
+  .bottomBarRightNoData {
     background-color: #A6A8B6;
   }
 </style>

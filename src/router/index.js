@@ -43,11 +43,6 @@ const router = new Router({
       component: (resolve) => require(['@/views/login/login'], resolve),
     },
     {
-      path: '/details',
-      name: 'details',
-      component: (resolve) => require(['@/views/details/details'], resolve),
-    },
-    {
       path: '/setUp',
       name: 'setUp',
       component: (resolve) => require(['@/views/setUp/setUp'], resolve),
@@ -58,19 +53,29 @@ const router = new Router({
       component: (resolve) => require(['@/views/search/search'], resolve),
     },
     {
+      path: '/searchResults',
+      name: 'searchResults',
+      component: (resolve) => require(['@/views/search/searchResults'], resolve),
+    },
+    {
+      path: '/details',
+      name: 'details',
+      component: (resolve) => require(['@/views/details/details'], resolve),
+    },
+    {
       path: '/shoppingCart',
       name: 'shoppingCart',
       component: (resolve) => require(['@/views/shoppingCart/shoppingCart'], resolve),
     },
     {
+      path: '/confirmOrder',
+      name: 'confirmOrder',
+      component: (resolve) => require(['@/views/confirmOrder/confirmOrder'], resolve),
+    },
+    {
       path: '/eventNews',
       name: 'eventNews',
       component: (resolve) => require(['@/views/eventNews/eventNews'], resolve),
-    },
-    {
-      path: '/searchResults',
-      name: 'searchResults',
-      component: (resolve) => require(['@/views/search/searchResults'], resolve),
     },
   ]
 });
@@ -79,7 +84,7 @@ router.beforeEach((to, from, next) => {
   if (to.path === '/login') {
     sessionStorage.removeItem('token');
   }
-  if(to.name === ''){
+  if (to.name === '') {
     next({path: 'Loading'})
   }
   let user = sessionStorage.getItem('token');

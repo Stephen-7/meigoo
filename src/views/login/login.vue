@@ -177,7 +177,7 @@
     justify-content: flex-start;
     font-size: 4.27vw;
     font-weight: 400;
-    color: #999999;
+    color: #333333;
   }
 
   .code {
