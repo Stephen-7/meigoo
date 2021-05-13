@@ -3,7 +3,7 @@
     <cpGlobalTitle :isBack="true" :isTitle="'商品分类'" />
     <div class="type">
       <van-sidebar class="left" v-model="activeKey">
-        <van-sidebar-item v-for="(item,index) in activeArr" :key="index" :title="item.title" />
+        <van-sidebar-item style="text-align: center" v-for="(item,index) in activeArr" :key="index" :title="item.title" />
       </van-sidebar>
 
       <van-pull-refresh class="right" v-model="refreshing" @refresh="onRefresh">
@@ -123,13 +123,12 @@
   .lists{
     width: 100%;
     height: auto;
-    padding: 0 4vw;
+    padding: 0 3.3vw;
     box-sizing: border-box;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1.5fr 1.5fr 1.5fr;
+    /*background-color: red;*/
   }
 
   .items{
@@ -139,16 +138,16 @@
     align-items: flex-start;
     justify-content: flex-start;
     flex-direction: column;
-    margin-top: 3.2vw;
+    background-color: white;
   }
 
-  .items:nth-child(2){
-    margin: 3.2vw 2.5vw 0 2.5vw;
-  }
+  /*.items:nth-child(2){*/
+  /*  margin: 3.2vw 2.5vw 0 2.5vw;*/
+  /*}*/
 
-  .items:nth-child(5){
-    margin: 3.2vw 2.5vw 0 2.5vw;
-  }
+  /*.items:nth-child(5){*/
+  /*  margin: 3.2vw 2.5vw 0 2.5vw;*/
+  /*}*/
 
   .itemsImage{
     width: 20.27vw;

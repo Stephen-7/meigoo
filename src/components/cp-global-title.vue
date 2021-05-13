@@ -35,6 +35,7 @@
     justify-content: center;
     flex-direction: row;
     background-color: white;
+    /*border-bottom: 0.1vw solid #EEEEEE;*/
   }
 
   .cp-left {

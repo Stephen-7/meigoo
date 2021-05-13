@@ -236,7 +236,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    position: absolute;
+    position: fixed;
     bottom: 20vw;
     left: 0;
   }

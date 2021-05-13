@@ -15,15 +15,9 @@
         finished-text="没有更多了"
         @load="onLoad"
       >
-        <ul class="uls">
-          <li class="item" v-for="(item,index) in list" :key="index">
-            <div class="type">
-              <p class="className">{{item.className}}</p>
-              <p class="times">{{item.times}}</p>
-            </div>
-            <p class="price" :class="item.prices < 0?'lessColor':'addColor'">¥{{item.prices}}</p>
-          </li>
-        </ul>
+        <div class="uls">
+          <cpGlobalAssetType :assetTypeList="list" />
+        </div>
       </van-list>
     </van-pull-refresh>
   </div>
@@ -137,9 +131,9 @@
 
   .list {
     width: 100%;
-    /*height: calc(100vh - 47vw);*/
+    height: calc(100vh - 33vw - 13.07vw - 13.05vw);
+    overflow: scroll;
     margin-bottom: 13.1vw;;
-    height: auto;
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;

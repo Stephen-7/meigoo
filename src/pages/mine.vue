@@ -2,7 +2,7 @@
   <div class="view">
     <div class="topNav">
       <div class="user">
-        <img class="userIcon" :src="userInfo.avatar" alt="">
+        <img class="userIcon" :src="userInfo.avatar" alt="" @click="$router.push('personalInformation')">
         <div class="userType">
           <p class="userName">{{userInfo.name}}</p>
           <p class="userGrade" :class="vipArr[userInfo.grade]"></p>
