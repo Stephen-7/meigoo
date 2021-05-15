@@ -1,9 +1,9 @@
 <template>
   <div class="view">
     <cpGlobalTitle :isBack="true" :isTitle="'设置'"/>
-    <van-cell style="height: 13vw;margin-top: 2.67vw" title="关于我们" is-link />
-    <van-cell style="height: 13vw" title="隐私政策" is-link />
-    <van-cell style="height: 13vw" title="注销账号" is-link />
+    <van-cell style="height: 13vw;line-height: 9vw;margin-top: 2.67vw" title="关于我们" is-link/>
+    <van-cell style="height: 13vw;line-height: 9vw;" title="隐私政策" is-link/>
+    <van-cell style="height: 13vw;line-height: 9vw;" title="注销账号" is-link/>
     <div class="out" @click="outUp">退出登录</div>
   </div>
 </template>
@@ -11,8 +11,8 @@
 <script>
   export default {
     name: "setUp",
-    methods:{
-      outUp(){
+    methods: {
+      outUp() {
         this.$router.push('login');
         sessionStorage.clear()
       },
@@ -29,7 +29,7 @@
     background-color: #F8F8F8;
   }
 
-  .out{
+  .out {
     width: 100%;
     height: 13.33vw;
     background: #FFFFFF;

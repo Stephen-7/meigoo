@@ -63,9 +63,9 @@ const router = new Router({
       component: (resolve) => require(['@/views/search/searchResults'], resolve),
     },
     {
-      path: '/details',
-      name: 'details',
-      component: (resolve) => require(['@/views/details/details'], resolve),
+      path: '/productDetails',
+      name: 'productDetails',
+      component: (resolve) => require(['@/views/details/productDetails'], resolve),
     },
     {
       path: '/shoppingCart',
@@ -81,6 +81,11 @@ const router = new Router({
       path: '/eventNews',
       name: 'eventNews',
       component: (resolve) => require(['@/views/message/eventNews'], resolve),
+    },
+    {
+      path: '/spike',
+      name: 'spike',
+      component: (resolve) => require(['@/views/spike/spike'], resolve),
     },
   ]
 });

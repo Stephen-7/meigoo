@@ -47,7 +47,7 @@
     <div class="discount">
       <img class="discount-img" :src="discount.image" alt="">
       <div class="discount-box">
-        <div class="discount-left">
+        <div class="discount-left" @click="$router.push('/spike')">
           <p>{{discount.left[0].region}}</p>
           <p>{{discount.left[0].timeLimit}}</p>
           <van-count-down millisecond :time="discount.left[0].time" format="HH:mm:ss" class="time"/>
@@ -162,7 +162,7 @@
 
     <div class="classTitle">精品推荐</div>
     <ul class="list">
-      <li class="items" v-for="(index) in 7" :key="index" @click="$router.push(`/details?id=${12}`)">
+      <li class="items" v-for="(index) in 7" :key="index" @click="$router.push(`/productDetails`)">
         <img class="itemsImage" src="../assets/image/class1.png" alt="">
         <div class="itemsType">
           <p class="itemsTitle">智能自动机器人扫地智能自动机器人扫地</p>

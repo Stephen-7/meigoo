@@ -67,7 +67,7 @@
     },
     data() {
       return {
-        vipArr:['vip1','vip2','vip3'],
+        vipArr:['vip1','vip2','vip3','vip4'],
         assetsArr: [
           {
             id: 1,
@@ -282,6 +282,10 @@
 
   .vip3{
     background-image: url("../assets/image/icon_vip3@2x.png");
+  }
+
+  .vip4{
+    background-image: url("../assets/image/icon_vip4@2x.png");
   }
 
   .userSet{
