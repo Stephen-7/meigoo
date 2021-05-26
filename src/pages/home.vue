@@ -19,159 +19,161 @@
       <p class="classificationIcon" @click="$router.push('/classification')"></p>
     </div>
 
-    <div class="swiper">
-      <van-swipe class="my-swipe" :autoplay="2000" indicator-color="white">
-        <van-swipe-item v-for="(item,index) in swiperArr" :key="index"><img class="swipeImg" :src="item.image" alt="">
-        </van-swipe-item>
-      </van-swipe>
-    </div>
-
-    <div class="grid">
-      <van-grid :column-num="4" icon-size="46px" :border="false">
-        <van-grid-item v-for="(classItem,index) in classArr" :key="index" :icon="classItem.icon"
-                       :text="classItem.title"/>
-      </van-grid>
-    </div>
-
-    <div class="publicity">
-      <div class="publicity-view">
-        <p class="publicity-left"></p>
-        <van-swipe class="publicity-swipe" :autoplay="2000" :show-indicators="false" vertical>
-          <van-swipe-item class="publicity-swipe-item" v-for="(item,index) in newsArr" :key="index">{{item.title}}
+    <div class="modelView">
+      <div class="swiper">
+        <van-swipe class="my-swipe" :autoplay="2000" indicator-color="white">
+          <van-swipe-item v-for="(item,index) in swiperArr" :key="index"><img class="swipeImg" :src="item.image" alt="">
           </van-swipe-item>
         </van-swipe>
-        <p class="publicity-right"></p>
       </div>
-    </div>
 
-    <div class="discount">
-      <img class="discount-img" :src="discount.image" alt="">
-      <div class="discount-box">
-        <div class="discount-left" @click="$router.push('/spike')">
-          <p>{{discount.left[0].region}}</p>
-          <p>{{discount.left[0].timeLimit}}</p>
-          <van-count-down millisecond :time="discount.left[0].time" format="HH:mm:ss" class="time"/>
-          <img :src="discount.left[0].image" alt="">
-          <p>￥{{discount.left[0].price}}</p>
+      <div class="grid">
+        <van-grid :column-num="4" icon-size="46px" :border="false">
+          <van-grid-item v-for="(classItem,index) in classArr" :key="index" :icon="classItem.icon"
+                         :text="classItem.title"/>
+        </van-grid>
+      </div>
+
+      <div class="publicity">
+        <div class="publicity-view">
+          <p class="publicity-left"></p>
+          <van-swipe class="publicity-swipe" :autoplay="2000" :show-indicators="false" vertical>
+            <van-swipe-item class="publicity-swipe-item" v-for="(item,index) in newsArr" :key="index">{{item.title}}
+            </van-swipe-item>
+          </van-swipe>
+          <p class="publicity-right"></p>
         </div>
-        <div class="discount-right">
-          <template v-for="item in discount.right">
-            <div class="discount-view" :style="`backgroundImage:url(${item.bgImage})`">
-              <p>{{item.title}}</p>
-              <p>{{item.discount}}</p>
-              <p>￥{{item.preferentialPrice}}</p>
-              <p>￥{{item.originalPrice}}</p>
+      </div>
+
+      <div class="discount">
+        <img class="discount-img" :src="discount.image" alt="">
+        <div class="discount-box">
+          <div class="discount-left" @click="$router.push('/spike')">
+            <p>{{discount.left[0].region}}</p>
+            <p>{{discount.left[0].timeLimit}}</p>
+            <van-count-down millisecond :time="discount.left[0].time" format="HH:mm:ss" class="time"/>
+            <img :src="discount.left[0].image" alt="">
+            <p>￥{{discount.left[0].price}}</p>
+          </div>
+          <div class="discount-right">
+            <template v-for="item in discount.right">
+              <div class="discount-view" :style="`backgroundImage:url(${item.bgImage})`">
+                <p>{{item.title}}</p>
+                <p>{{item.discount}}</p>
+                <p>￥{{item.preferentialPrice}}</p>
+                <p>￥{{item.originalPrice}}</p>
+              </div>
+            </template>
+          </div>
+        </div>
+      </div>
+
+      <div class="today">
+        <div class="today-left">
+          <div class="today-left-top">
+            <p class="top-title1">今日推荐</p>
+            <p class="top-title2">今日推荐特区</p>
+            <p class="top-title3"></p>
+          </div>
+          <div class="today-left-center">
+            <img class="today-left-center-image" src="../assets/image/106b97ecaf43bc97.jpg" alt="">
+            <p class="today-left-center-bg">¥19.00</p>
+          </div>
+          <div class="today-left-bottom">
+            <p class="bottom-title1">进口山竹 500g</p>
+            <p class="bottom-title2">今日份的新鲜</p>
+          </div>
+        </div>
+        <div class="today-right">
+          <div class="today-right-set">
+            <div class="set-top">
+              <p class="set-top-title">正宗小龙虾</p>
+              <p class="set-top-text">鲜活秒杀</p>
             </div>
-          </template>
+            <div class="set-image">
+              <img class="set-image-img" src="../assets/image/5ae422c8N81829b22.jpg" alt="">
+            </div>
+            <p class="set-text">限量500份</p>
+          </div>
+
+          <div class="today-right-set">
+            <div class="set-top">
+              <p class="set-top-title">绿色有机紫薯</p>
+              <p class="set-top-text">有机认证</p>
+            </div>
+            <div class="set-image">
+              <img class="set-image-img" src="../assets/image/59b92e63Nde7029ce.jpg" alt="">
+            </div>
+            <p class="set-text">秒杀9元/500g</p>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="today">
-      <div class="today-left">
-        <div class="today-left-top">
-          <p class="top-title1">今日推荐</p>
-          <p class="top-title2">今日推荐特区</p>
-          <p class="top-title3"></p>
-        </div>
-        <div class="today-left-center">
-          <img class="today-left-center-image" src="../assets/image/106b97ecaf43bc97.jpg" alt="">
-          <p class="today-left-center-bg">¥19.00</p>
-        </div>
-        <div class="today-left-bottom">
-          <p class="bottom-title1">进口山竹 500g</p>
-          <p class="bottom-title2">今日份的新鲜</p>
-        </div>
+      <div class="activity">
+        <img class="activity-left" src="../assets/image/special_pic_home1@2x.png" alt="">
+        <img class="activity-right" src="../assets/image/special_pic_home2@2x.png" alt="">
       </div>
-      <div class="today-right">
-        <div class="today-right-set">
-          <div class="set-top">
-            <p class="set-top-title">正宗小龙虾</p>
-            <p class="set-top-text">鲜活秒杀</p>
-          </div>
-          <div class="set-image">
-            <img class="set-image-img" src="../assets/image/5ae422c8N81829b22.jpg" alt="">
-          </div>
-          <p class="set-text">限量500份</p>
+
+      <div class="NearbyBusinesses">
+        <div class="all-top">
+          <p class="add-top-merchant">附近商家</p>
+          <p class="add-top-add">更多优惠 <span class="add-top-add-go"></span></p>
         </div>
-
-        <div class="today-right-set">
-          <div class="set-top">
-            <p class="set-top-title">绿色有机紫薯</p>
-            <p class="set-top-text">有机认证</p>
-          </div>
-          <div class="set-image">
-            <img class="set-image-img" src="../assets/image/59b92e63Nde7029ce.jpg" alt="">
-          </div>
-          <p class="set-text">秒杀9元/500g</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="activity">
-      <img class="activity-left" src="../assets/image/special_pic_home1@2x.png" alt="">
-      <img class="activity-right" src="../assets/image/special_pic_home2@2x.png" alt="">
-    </div>
-
-    <div class="NearbyBusinesses">
-      <div class="all-top">
-        <p class="add-top-merchant">附近商家</p>
-        <p class="add-top-add">更多优惠 <span class="add-top-add-go"></span></p>
-      </div>
-      <div class="NearbyBusinesses-set">
-        <ul class="NearbyBusinesses-set-item">
-          <li class="NearbyBusinesses-set-item-index" v-for="(item,index) in businesses" :key="index">
-            <img :src="item.image" class="index-left-image" alt="">
-            <div class="index-right-box">
-              <p class="index-right-box-title">{{item.title}}</p>
-              <div class="index-right-box-center">
-                <div class="center-top">
-                  <p class="center-top-num">
-                    <span class="center-top-num-length" :style="{width:item.length}"></span>
-                  </p>
-                  <p class="center-top-text">{{item.sold}}</p>
-                </div>
-                <div class="center-bottom">
-                  <div class="center-bottom-money">
-                    <p class="money-key1">¥<span class="money-value1">{{item.discountPrice}}</span></p>
-                    <p class="money-key2">¥<span class="money-value2">{{item.originalPrice}}</span></p>
+        <div class="NearbyBusinesses-set">
+          <ul class="NearbyBusinesses-set-item">
+            <li class="NearbyBusinesses-set-item-index" v-for="(item,index) in businesses" :key="index">
+              <img :src="item.image" class="index-left-image" alt="">
+              <div class="index-right-box">
+                <p class="index-right-box-title">{{item.title}}</p>
+                <div class="index-right-box-center">
+                  <div class="center-top">
+                    <p class="center-top-num">
+                      <span class="center-top-num-length" :style="{width:item.length}"></span>
+                    </p>
+                    <p class="center-top-text">{{item.sold}}</p>
                   </div>
-                  <p class="center-bottom-addShop">{{item.panicBuying}}</p>
+                  <div class="center-bottom">
+                    <div class="center-bottom-money">
+                      <p class="money-key1">¥<span class="money-value1">{{item.discountPrice}}</span></p>
+                      <p class="money-key2">¥<span class="money-value2">{{item.originalPrice}}</span></p>
+                    </div>
+                    <p class="center-bottom-addShop">{{item.panicBuying}}</p>
+                  </div>
+                </div>
+                <div class="index-right-box-footer">
+                  <p class="footer-address">{{item.address}}</p>
+                  <p class="footer-distance">{{item.distance}}</p>
                 </div>
               </div>
-              <div class="index-right-box-footer">
-                <p class="footer-address">{{item.address}}</p>
-                <p class="footer-distance">{{item.distance}}</p>
-              </div>
-            </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="newShop">
+        <div class="classTitle" style="margin-top: 3vw;">新品上架</div>
+        <ul class="newShopList">
+          <li class="newShopItem" v-for="(item,index) in newProducts" :key="index">
+            <img class="newShopItemImage" :src="item.image" alt="">
+            <p class="newShopItemTitle">{{item.title}}</p>
+            <p class="newShopItemPrice">¥{{item.price}}</p>
           </li>
         </ul>
       </div>
-    </div>
 
-    <div class="newShop">
-      <div class="classTitle" style="margin-top: 3vw;">新品上架</div>
-      <ul class="newShopList">
-        <li class="newShopItem" v-for="(item,index) in newProducts" :key="index">
-          <img class="newShopItemImage" :src="item.image" alt="">
-          <p class="newShopItemTitle">{{item.title}}</p>
-          <p class="newShopItemPrice">¥{{item.price}}</p>
+      <div class="classTitle">精品推荐</div>
+      <ul class="list">
+        <li class="items" v-for="(index) in 7" :key="index" @click="$router.push(`/productDetails`)">
+          <img class="itemsImage" src="../assets/image/class1.png" alt="">
+          <div class="itemsType">
+            <p class="itemsTitle">智能自动机器人扫地智能自动机器人扫地</p>
+            <p class="itemsPrice">¥326.3</p>
+            <p class="itemsNum">已售 23897件</p>
+          </div>
         </li>
+        <li class="itemsHd">- 到底啦 -</li>
       </ul>
     </div>
-
-    <div class="classTitle">精品推荐</div>
-    <ul class="list">
-      <li class="items" v-for="(index) in 7" :key="index" @click="$router.push(`/productDetails`)">
-        <img class="itemsImage" src="../assets/image/class1.png" alt="">
-        <div class="itemsType">
-          <p class="itemsTitle">智能自动机器人扫地智能自动机器人扫地</p>
-          <p class="itemsPrice">¥326.3</p>
-          <p class="itemsNum">已售 23897件</p>
-        </div>
-      </li>
-      <li class="itemsHd">- 到底啦 -</li>
-    </ul>
   </div>
 </template>
 
@@ -416,7 +418,7 @@
 
   .classificationType {
     flex: 1.1;
-    height: 10.67vw;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -437,6 +439,16 @@
   .classificationAction {
     color: #333333;
     font-weight: bold;
+  }
+
+  .modelView{
+    width: 100%;
+    height: calc(100vh - 11.53vw - 11vw);
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    overflow: scroll;
   }
 
   .swiper {
@@ -637,7 +649,7 @@
     height: auto;
     padding: 0 3.2vw 2vw 3.2vw !important;
     box-sizing: border-box;
-    margin-bottom: 13.5vw;
+    margin-bottom: 13vw;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;

@@ -75,7 +75,7 @@
       },
 
       tabIndex(index) {
-        this.itemIndex = index;
+        // this.itemIndex = index;
       },
     },
     mounted() {

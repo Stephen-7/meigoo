@@ -62,7 +62,8 @@
     computed:{
       userInfo(){
         // let userInfo = JSON.parse(sessionStorage.getItem('userInfo'))
-        return JSON.parse(sessionStorage.getItem('userInfo'))
+        let userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+        return userInfo
       },
     },
     data() {
