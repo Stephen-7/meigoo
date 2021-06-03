@@ -1,30 +1,22 @@
 <template>
   <div class="view">
-    <cpGlobalTitle :isBack="true" :isTitle="'设置'"/>
+    <cpGlobalTitle :isBack="true" :isTitle="'常见问题'"/>
     <div class="item" style="margin-top: 2.67vw">
-      <span class="itemLeft">关于我们</span>
+      <span class="itemLeft">为什么不能支付</span>
       <span class="itemRight"></span>
     </div>
     <div class="item">
-      <span class="itemLeft">隐私政策</span>
+      <span class="itemLeft">什么时候申请售后</span>
       <span class="itemRight"></span>
     </div>
-    <div class="item">
-      <span class="itemLeft">注销账号</span>
-      <span class="itemRight"></span>
-    </div>
-    <div class="out" @click="outUp">退出登录</div>
   </div>
 </template>
 
 <script>
   export default {
-    name: "setUp",
+    name: "commonProblem",
     methods: {
-      outUp() {
-        this.$router.push('login');
-        sessionStorage.clear()
-      },
+
     }
   }
 </script>
@@ -65,19 +57,5 @@
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center center;
-  }
-
-  .out {
-    width: 100%;
-    height: 13.33vw;
-    background: #FFFFFF;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-size: 4vw;
-    font-weight: 400;
-    color: #666666;
-    margin-top: 4.27vw;
   }
 </style>

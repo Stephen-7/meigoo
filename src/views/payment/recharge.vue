@@ -1,6 +1,6 @@
 <template>
   <div class="view">
-    <cpGlobalTitle :is-back="true" :isTitle="'支付方式'"/>
+    <cpGlobalTitle :is-back="true" :isTitle="'充值'"/>
     <div class="totalAmount">
       <p class="totalAmountTitle">合计金额</p>
       <p class="totalAmountNum">¥830.56</p>
@@ -24,25 +24,6 @@
         <van-checkbox v-model="checked2" @click="change(2)" checked-color="#E2B575"></van-checkbox>
       </div>
     </div>
-    <div class="selectType">
-      <div class="selectTypeTop">
-        <p class="selectTypeTopTitle">可用优惠（只可选一种）</p>
-      </div>
-      <div class="selectTypeItem">
-        <div class="selectTypeItemLeft">
-          <img class="selectTypeItemLeftImg" src="../../assets/image/icon_redbag_20@2x.png" alt="">
-          <span class="selectTypeItemLeftTitle">红包（可抵扣 ¥20.00）</span>
-        </div>
-        <van-checkbox v-model="checked3" @click="change(3)" checked-color="#E2B575"></van-checkbox>
-      </div>
-      <div class="selectTypeItem">
-        <div class="selectTypeItemLeft">
-          <img class="selectTypeItemLeftImg" src="../../assets/image/icon_integral_20@2x.png" alt="">
-          <span class="selectTypeItemLeftTitle">积分（可抵扣 ¥40.00） </span>
-        </div>
-        <van-checkbox v-model="checked4" @click="change(4)" checked-color="#E2B575"></van-checkbox>
-      </div>
-    </div>
     <div class="selectPayment" @click="submit">去支付</div>
   </div>
 </template>
@@ -50,15 +31,13 @@
 <script>
   import {Toast} from 'vant';
   export default {
-    name: "payment",
+    name: "recharge",
     data() {
       return {
-        index:"",
+        index: "",
         checked1: false,
         checked2: false,
-        checked3: false,
-        checked4: false,
-        paymentArr:['微信',"支付宝","红包","积分"],
+        paymentArr: ['微信', "支付宝"],
       }
     },
 
@@ -69,45 +48,29 @@
           case 1:
             this.checked1 = true;
             this.checked2 = false;
-            this.checked3 = false;
-            this.checked4 = false;
             break;
           case 2:
             this.checked1 = false;
             this.checked2 = true;
-            this.checked3 = false;
-            this.checked4 = false;
-            break;
-          case 3:
-            this.checked1 = false;
-            this.checked2 = false;
-            this.checked3 = true;
-            this.checked4 = false;
-            break;
-          case 4:
-            this.checked1 = false;
-            this.checked2 = false;
-            this.checked3 = false;
-            this.checked4 = true;
             break;
           default:
         }
       },
 
-      submit(){
+      submit() {
         let index = this.index;
         let paymentArr = this.paymentArr;
-        if(!index){
+        if (!index) {
           Toast('请选择支付方式');
           return
         }
-        console.log(index,paymentArr[index-1]);
+        console.log(index, paymentArr[index - 1]);
         this.$store.commit('showLoading');
-        setTimeout(()=>{
+        setTimeout(() => {
           this.$store.commit('hideLoading');
           Toast('支付成功');
           this.$router.push('/mine')
-        },3000);
+        }, 3000);
       },
     }
   }

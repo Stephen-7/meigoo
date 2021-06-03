@@ -48,6 +48,11 @@ const router = new Router({
       component: (resolve) => require(['@/views/setUp/setUp'], resolve),
     },
     {
+      path: '/commonProblem',
+      name: 'commonProblem',
+      component: (resolve) => require(['@/views/setUp/commonProblem'], resolve),
+    },
+    {
       path: '/personalInformation',
       name: 'personalInformation',
       component: (resolve) => require(['@/views/setUp/personalInformation'], resolve),
@@ -91,6 +96,11 @@ const router = new Router({
       path: '/payment',
       name: 'payment',
       component: (resolve) => require(['@/views/payment/payment'], resolve),
+    },
+    {
+      path: '/recharge',
+      name: 'recharge',
+      component: (resolve) => require(['@/views/payment/recharge'], resolve),
     },
     {
       path: '/productReviews',
