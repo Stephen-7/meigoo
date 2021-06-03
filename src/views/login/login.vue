@@ -236,9 +236,10 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    position: fixed;
-    bottom: 20vw;
-    left: 0;
+    /*position: fixed;*/
+    /*bottom: 20vw;*/
+    /*left: 0;*/
+    margin-top: 60vw;
   }
 
   .loginTypeTop {

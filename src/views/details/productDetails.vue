@@ -3,7 +3,8 @@
     <div class="topIcon">
       <img class="leftIcon" src="../../assets/image/btn_back_24_black_cicle@2x.png" alt="" @click="$router.back()">
       <div class="rightIcon">
-        <img class="rightIcon1" src="../../assets/image/icon_shoppingcard_24_circle@2x.png" @click="$router.push('/shoppingCart')" alt="">
+        <img class="rightIcon1" src="../../assets/image/icon_shoppingcard_24_circle@2x.png"
+             @click="$router.push('/shoppingCart')" alt="">
         <img class="rightIcon2" src="../../assets/image/icon_share_24_circle_gray@2x.png" alt="">
       </div>
     </div>
@@ -33,48 +34,17 @@
         <div class="specification-type">完美日记星动臻色金钻唇膏小金钻大口红推荐女学生款</div>
         <div class="specification-price">
           <p class="specification-price-name">零售价</p>
-          <p class="specification-price-num"><span class="specification-price-symbol">¥</span>500</p>
+          <p class="specification-price-num"><span class="specification-price-symbol">¥</span>150</p>
         </div>
       </div>
-      <div class="specification-bottom">
-        <p class="specification-bottom-name">批发价</p>
-        <div class="specification-bottom-type">
-          <div class="specification-bottom-type-box">
-            <p class="specification-bottom-type-box-price"><span class="specification-bottom-type-box-symbol">¥</span>499.00
-            </p>
-            <p class="specification-bottom-type-box-num">1-500件</p>
-          </div>
-          <div class="specification-bottom-type-box">
-            <p class="specification-bottom-type-box-price"><span class="specification-bottom-type-box-symbol">¥</span>499.00
-            </p>
-            <p class="specification-bottom-type-box-num">1-500件</p>
-          </div>
-          <div class="specification-bottom-type-box">
-            <p class="specification-bottom-type-box-price"><span class="specification-bottom-type-box-symbol">¥</span>499.00
-            </p>
-            <p class="specification-bottom-type-box-num">1-500件</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="sales">
-      <div class="sales-left">
-        <p class="sales-left-local"><span class="sales-left-ship">发货</span>上海</p>
-        <p class="sales-left-expressDelivery">快递：10.00元</p>
-      </div>
-      <div class="sales-right">月售5万+件</div>
     </div>
 
     <div class="parameter">
       <div class="parameter-row" @click="onSpecificationShow">
         <p class="parameter-row-name">规格</p>
-        <p class="parameter-row-sky">请选择规格</p>
-        <p class="parameter-row-to"></p>
-      </div>
-      <div class="parameter-row">
-        <p class="parameter-row-name">参数</p>
-        <p class="parameter-row-sky">品牌名，小金砖口红单品，产地品牌名，小金砖口红单品，品牌名，小金砖口红单品</p>
+        <p class="parameter-row-sky" v-show="!typeObj.color">请选择规格</p>
+        <p class="parameter-row-sky" v-show="typeObj.color"><span>颜色：{{typeObj.color}}</span>
+          <span>尺寸：{{typeObj.size}}</span> <span>数量：{{typeObj.value}}</span></p>
         <p class="parameter-row-to"></p>
       </div>
     </div>
@@ -82,26 +52,9 @@
     <div class="comment">
       <div class="comment-top">
         <p class="comment-top-num">宝贝评论（22条）</p>
-        <p class="comment-top-all">查看全部<span class="comment-top-go"></span></p>
+        <p class="comment-top-all" @click="$router.push('/productReviews')">查看全部<span class="comment-top-go"></span></p>
       </div>
-
-      <div class="comment-content">
-        <div class="comment-content-row">
-          <div class="comment-content-row-left">
-            <img class="comment-content-row-left-image" src="../../assets/image/icon_headprotrait_shop_40@2x.png" alt="">
-            <p class="comment-content-row-left-name">Stephen</p>
-          </div>
-          <div class="comment-content-row-right">2小时前</div>
-        </div>
-        <p class="comment-content-text">语雀是一款优雅高效的在线文档编辑与协同工具， 让每个企业轻松拥有文档，语雀是一款优雅高效的在线文档编辑与协同工具，
-          让每个企业轻松拥有文档语雀是一款优雅高效的在线文档编辑与协同工具， 让每个企业轻松拥有文档语雀是一款优雅高效的在线文档编辑与协同工具， 让每个企业轻松拥有文档语雀是一款优雅高效的在线文档编辑与协同工具，
-          让每个企业轻松拥有文档</p>
-        <div class="comment-content-image">
-          <img class="comment-content-image-follow" src="../../assets/image/details@2x.png" alt="">
-          <img class="comment-content-image-follow" src="../../assets/image/details@2x.png" alt="">
-          <img class="comment-content-image-follow" src="../../assets/image/details@2x.png" alt="">
-        </div>
-      </div>
+      <cpGlobalBackComment v-for="(item,index) in 3" :key="index"/>
     </div>
 
     <div class="detailsImage">
@@ -116,7 +69,8 @@
 
     <div class="bottomBar">
       <van-goods-action>
-        <van-goods-action-icon :icon="tabStar?'star':'star-o'" :text="tabStar?'已收藏':'收藏'" color="#ff5000" @click="onStar"/>
+        <van-goods-action-icon :icon="tabStar?'star':'star-o'" :text="tabStar?'已收藏':'收藏'" color="#ff5000"
+                               @click="onStar"/>
         <van-goods-action-icon icon="chat-o" text="客服" color="#07c160"/>
         <van-goods-action-button type="warning" @click="onSpecificationShow" text="加入购物车"/>
         <van-goods-action-button type="danger" text="立即购买" @click="toConfirmOrder"/>
@@ -133,33 +87,14 @@
             <p class="onSpecification-top-type-class">请选择颜色分类/尺码</p>
           </div>
         </div>
-        <div class="specification-bottom" style="border-bottom: 1px solid #eeeeee">
-          <p class="specification-bottom-name">批发价</p>
-          <div class="specification-bottom-type">
-            <div class="specification-bottom-type-box">
-              <p class="specification-bottom-type-box-price"><span class="specification-bottom-type-box-symbol">¥</span>499.00
-              </p>
-              <p class="specification-bottom-type-box-num">1-500件</p>
-            </div>
-            <div class="specification-bottom-type-box">
-              <p class="specification-bottom-type-box-price"><span class="specification-bottom-type-box-symbol">¥</span>499.00
-              </p>
-              <p class="specification-bottom-type-box-num">1-500件</p>
-            </div>
-            <div class="specification-bottom-type-box">
-              <p class="specification-bottom-type-box-price"><span class="specification-bottom-type-box-symbol">¥</span>499.00
-              </p>
-              <p class="specification-bottom-type-box-num">1-500件</p>
-            </div>
-          </div>
-        </div>
         <div class="row">
           <div class="row-ber">
             <p class="row-title">选择颜色</p>
           </div>
           <div class="row-data">
-            <template v-for="(item,index) in popular">
-              <p class="row-data-text" :class="popularIndex === index?'row-data-text-action':''" :key="index">
+            <template v-for="(item,index) in popular1Arr">
+              <p class="row-data-text" :class="popularIndex1 === index?'textAction':''"
+                 @click="changeIndex('color',index)" :key="index">
                 {{item}}</p>
             </template>
           </div>
@@ -169,19 +104,20 @@
             <p class="row-title">选择尺寸</p>
           </div>
           <div class="row-data">
-            <template v-for="(item,index) in popular">
-              <p class="row-data-text" :class="popularIndex === index?'row-data-text-action':''" :key="index">
+            <template v-for="(item,index) in popular2Arr">
+              <p class="row-data-text" :class="popularIndex2 === index?'textAction':''"
+                 @click="changeIndex('size',index)" :key="index">
                 {{item}}</p>
             </template>
           </div>
         </div>
         <div class="row-row">
           <p class="row-row-title">选择尺寸</p>
-          <van-stepper v-model="value"/>
+          <van-stepper v-model="value" disable-input/>
         </div>
         <div class="add">
-          <p class="add-class">加入购物车</p>
-          <p class="add-immediately">立即购买</p>
+          <p class="add-class" @click="addCart">加入购物车</p>
+          <p class="add-immediately" @click="shopCart">立即购买</p>
         </div>
       </div>
     </van-action-sheet>
@@ -209,8 +145,18 @@
         specification: false,
         parameter: false,
         popularIndex: '',
-        popular: ["美妆", "美容", "美妆", "美妆", "美容", "超值宝贝",],
         value: 1,
+        imageArr: [],
+        popular1Arr: ["美妆", "美容", "美妆", "美妆", "美容", "超值宝贝",],
+        popular2Arr: ["超值宝贝", "美容", "美妆", "美妆", "美妆", "美容",],
+        popularIndex1: 0,
+        popularIndex2: 0,
+        frequency: 0,
+        typeObj: {
+          color: "",
+          size: "",
+          value: 1,
+        },
       }
     },
     methods: {
@@ -230,9 +176,33 @@
         this.specification = false;
       },
 
+      changeIndex(type, index) {
+        if (type === 'color') {
+          this.popularIndex1 = index;
+        } else {
+          this.popularIndex2 = index
+        }
+      },
+
       toConfirmOrder() {
         this.$router.push('/confirmOrder');
-      }
+      },
+
+      addCart() {
+        let {popularIndex1, popularIndex2, value, popular1Arr, popular2Arr} = this;
+        let popular1 = popular1Arr[popularIndex1];
+        let popular2 = popular2Arr[popularIndex2];
+        this.typeObj = {
+          color: popular1,
+          size: popular2,
+          value: value,
+        };
+        this.specification = false;
+      },
+
+      shopCart() {
+
+      },
     },
   }
 </script>
@@ -327,16 +297,16 @@
     height: auto;
     display: flex;
     flex-direction: column;
-    border-bottom: 0.5vw solid #eeeeee;
+    /*border-bottom: 0.5vw solid #eeeeee;*/
   }
 
   .specification-type {
     width: 100%;
     height: auto;
-    font-size: 17px;
+    font-size: 4.5vw;
     font-weight: bold;
     color: rgba(51, 51, 51, 1);
-    margin: 5px 0 10px 0;
+    /*margin: 5px 0 10px 0;*/
   }
 
   .specification-price {
@@ -349,128 +319,22 @@
   }
 
   .specification-price-name {
-    font-size: 14px;
+    font-size: 3.8vw;
     font-weight: 500;
     color: rgba(153, 153, 153, 1);
-    margin-right: 12px;
+    margin-right: 3.2vw;
   }
 
   .specification-price-num {
-    font-size: 22px;
+    font-size: 4.5vw;
     font-weight: bold;
     color: rgba(255, 48, 58, 1);
   }
 
   .specification-price-symbol {
-    font-size: 13px;
+    font-size: 1vw;
     font-weight: 500;
     color: rgba(255, 48, 58, 1);
-  }
-
-  .specification-bottom {
-    width: 100%;
-    padding: 12px;
-    box-sizing: border-box;
-    height: auto;
-    display: flex;
-    flex-direction: row;
-  }
-
-  .specification-bottom-name {
-    font-size: 14px;
-    font-weight: 500;
-    color: rgba(153, 153, 153, 1);
-    margin-right: 12px;
-  }
-
-  .specification-bottom-type {
-    width: auto;
-    height: auto;
-    display: flex;
-    align-items: flex-start;
-    justify-items: flex-start;
-    flex-direction: row;
-  }
-
-  .specification-bottom-type-box {
-    width: auto;
-    height: auto;
-    display: flex;
-    align-items: flex-start;
-    justify-items: flex-start;
-    flex-direction: column;
-    margin-right: 35px;
-  }
-
-  .specification-bottom-type-box:last-child {
-    margin-right: 0;
-  }
-
-  .specification-bottom-type-box-price {
-    font-size: 14px;
-    font-weight: 500;
-    color: rgba(255, 48, 58, 1);
-  }
-
-  .specification-bottom-type-box-symbol {
-    font-size: 13px;
-    font-weight: 500;
-    color: rgba(255, 48, 58, 1);
-  }
-
-  .specification-bottom-type-box-num {
-    font-size: 12px;
-    font-weight: 400;
-    color: rgba(102, 102, 102, 1);
-  }
-
-  .sales {
-    width: 100%;
-    height: 45px;
-    padding: 0 12px;
-    box-sizing: border-box;
-    background-color: #FFFFFF;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: row;
-    margin-bottom: 10px;
-  }
-
-  .sales-left {
-    width: auto;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: row;
-  }
-
-  .sales-left-local {
-    font-size: 14px;
-    font-weight: 400;
-    color: rgba(51, 51, 51, 1);
-    margin-right: 13px;
-  }
-
-  .sales-left-ship {
-    font-size: 14px;
-    font-weight: 500;
-    color: rgba(153, 153, 153, 1);
-    margin-right: 26px;
-  }
-
-  .sales-left-expressDelivery {
-    font-size: 14px;
-    font-weight: 400;
-    color: rgba(51, 51, 51, 1);
-    border-left: 1px solid #EEEEEE;
-    padding-left: 13px;
-  }
-
-  .sales-right {
-    font-size: 14px;
-    font-weight: 400;
-    color: rgba(102, 102, 102, 1);
   }
 
   .parameter {
@@ -506,7 +370,7 @@
     flex: 1;
     font-size: 14px;
     font-weight: 400;
-    color: rgba(51, 51, 51, 1);
+    color: #666666;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -520,9 +384,9 @@
   }
 
   .parameter-row-to {
-    width: 22px;
-    height: 22px;
-    /*background-image: url("../../assets/img/cart/icon_go_22_gray@2x.png");*/
+    width: 6vw;
+    height: 6vw;
+    background-image: url("../../assets/image/icon_go_22_gray@2x.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-position: center center;
@@ -541,8 +405,8 @@
 
   .comment-top {
     width: 100%;
-    padding: 0 12px;
-    margin-top: 12px;
+    padding: 0 3.2vw;
+    margin-top: 3.2vw;
     box-sizing: border-box;
     height: auto;
     display: flex;
@@ -568,102 +432,15 @@
   }
 
   .comment-top-go {
-    width: 22px;
-    height: 22px;
+    width: 6.4vw;
+    height: 6.4vw;
     display: inline-block;
-    /*background-image: url("../../assets/img/cart/icon_go_22_gray@2x.png");*/
+    background-image: url("../../assets/image/icon_go_22_gray@2x.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-position: center center;
   }
 
-  .comment-content {
-    width: 100%;
-    margin-top: 10px;
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    border-bottom: 1px solid #EEEEEE;
-  }
-
-  .comment-content:last-child {
-    border-bottom: none;
-  }
-
-  .comment-content-row {
-    width: 100%;
-    height: 25px;
-    padding: 0 12px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: row;
-  }
-
-  .comment-content-row-left {
-    width: auto;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: row;
-  }
-
-  .comment-content-row-left-image {
-    width: 6.4vw;
-    height: 6.4vw;
-    display: block;
-    margin-right: 1.3vw;
-  }
-
-  .comment-content-row-left-name {
-    font-size: 3.4vw;
-    font-weight: 500;
-    color: rgba(51, 51, 51, 1);
-  }
-
-  .comment-content-row-right {
-    font-size: 3.4vw;
-    font-weight: 400;
-    color: rgba(153, 153, 153, 1);
-  }
-
-  .comment-content-text {
-    width: 100%;
-    padding: 0 3.2vw;
-    margin-bottom: 2vw;
-    /*padding-right: 15%;*/
-    box-sizing: border-box;
-    height: auto;
-    font-size: 3.85vw;
-    font-weight: 400;
-    color: rgba(51, 51, 51, 1);
-    text-align: left;
-  }
-
-  .comment-content-image {
-    width: 100%;
-    padding: 0 3.2vw;
-    margin-bottom: 2vw;
-    box-sizing: border-box;
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  .comment-content-image-follow {
-    width: 25vw;
-    height: 25vw;
-    display: block;
-    border-radius: 1.5vw;
-    margin-right: 2vw;
-  }
 
   .detailsImage {
     width: 100%;
@@ -692,8 +469,8 @@
 
   .end {
     width: 100%;
-    height: 40px;
-    font-size: 13px;
+    height: 13vw;
+    font-size: 3.84vw;
     font-weight: 400;
     color: rgba(153, 153, 153, 1);
     display: flex;
@@ -715,25 +492,25 @@
   .onSpecification-top {
     width: 100%;
     height: auto;
-    margin-top: 12px;
+    margin: 3.2vw 0;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    padding: 0 12px;
+    padding: 0 3.2vw;
     box-sizing: border-box;
   }
 
   .onSpecification-top-image {
-    width: 90px;
-    height: 90px;
+    width: 24vw;
+    height: 24vw;
     display: block;
-    margin-right: 12px;
+    margin-right: 3.2vw;
   }
 
   .onSpecification-top-type {
     flex: 1;
-    height: 90px;
+    height: 24vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -746,27 +523,27 @@
   }
 
   .onSpecification-top-type-price {
-    font-size: 22px;
+    font-size: 5vw;
     font-weight: bold;
     color: rgba(255, 48, 58, 1);
   }
 
   .onSpecification-top-type-symbol {
-    font-size: 13px;
+    font-size: 3.6vw;
     font-weight: 500;
     color: rgba(255, 48, 58, 1);
   }
 
   .onSpecification-top-type-num {
-    font-size: 13px;
+    font-size: 3.84vw;
     font-weight: 400;
     color: rgba(102, 102, 102, 1);
-    margin-top: 5px;
-    margin-bottom: 7px;
+    margin-top: 1vw;
+    margin-bottom: 1.1vw;
   }
 
   .onSpecification-top-type-class {
-    font-size: 13px;
+    font-size: 3.6vw;
     font-weight: 400;
     color: rgba(153, 153, 153, 1);
   }
@@ -774,15 +551,15 @@
   .row {
     width: 100%;
     height: auto;
-    padding: 0 12px;
+    padding: 0 3.2vw;
     box-sizing: border-box;
   }
 
   .row-row {
     width: 100%;
     height: auto;
-    padding: 0 12px;
-    margin-top: 5px;
+    padding: 0 3.2vw;
+    margin-top: 1vw;
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -794,7 +571,7 @@
     align-items: center;
     justify-content: flex-start;
     text-align: left;
-    font-size: 16px;
+    font-size: 4.2vw;
     font-weight: bold;
     color: rgba(51, 51, 51, 1);
   }
@@ -809,15 +586,15 @@
 
   .row-title {
     width: 100%;
-    height: 20px;
+    height: 6vw;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     text-align: left;
-    font-size: 16px;
+    font-size: 4.2vw;
     font-weight: bold;
     color: rgba(51, 51, 51, 1);
-    margin: 16px 0 12px 0;
+    margin: 2vw 0 3.2vw 0;;
   }
 
   .row-data {
@@ -831,39 +608,30 @@
 
   .row-data-text {
     width: auto;
-    height: 28px;
-    padding: 0 16px;
+    height: 7.5vw;
+    padding: 0 3.5vw;
     display: flex;
     align-items: center;
     justify-content: center;
     background: rgba(248, 248, 248, 1);
     border-radius: 14px;
-    font-size: 14px;
+    font-size: 3.8vw;
     font-weight: 400;
     color: rgba(102, 102, 102, 1);
-    border: 1px solid transparent;
-    margin-right: 12px;
-    margin-bottom: 12px;
+    border: 0.1vw solid transparent;
+    margin-right: 3.2vw;
+    margin-bottom: 3.2vw;
   }
 
-  .row-data-text-action {
-    width: auto;
-    height: 28px;
-    padding: 0 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 14px;
-    font-size: 14px;
-    font-weight: 400;
+  .textAction {
     color: #FF4E56;
     background: rgba(255, 235, 236, 1);
-    border: 1px solid rgba(255, 48, 58, 1)
+    border: 0.1vw solid rgba(255, 48, 58, 1)
   }
 
   .add {
     width: 100%;
-    height: 55px;
+    height: 15vw;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -874,31 +642,31 @@
   }
 
   .add-class {
-    width: 120px;
-    height: 40px;
+    width: 32vw;
+    height: 10vw;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-size: 15px;
+    font-size: 4.3vw;
     font-weight: 400;
     color: rgba(255, 78, 86, 1);
-    border-radius: 40px;
-    border: 1px solid rgba(255, 48, 58, 1);
+    border-radius: 30vw;
+    border: 0.1vw solid rgba(255, 48, 58, 1);
   }
 
   .add-immediately {
-    width: 120px;
-    height: 40px;
+    width: 32vw;
+    height: 10vw;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-size: 15px;
+    font-size: 4.3vw;
     font-weight: 400;
     color: rgba(255, 255, 255, 1);
-    border-radius: 40px;
-    margin-left: 8px;
+    border-radius: 30vw;
+    margin-left: 3vw;
     background: linear-gradient(308deg, rgba(255, 48, 58, 1) 0%, rgba(255, 121, 0, 1) 100%);
   }
 

@@ -68,46 +68,45 @@
         </div>
       </div>
 
-      <div class="today">
-        <div class="today-left">
-          <div class="today-left-top">
-            <p class="top-title1">今日推荐</p>
-            <p class="top-title2">今日推荐特区</p>
-            <p class="top-title3"></p>
-          </div>
-          <div class="today-left-center">
-            <img class="today-left-center-image" src="../assets/image/106b97ecaf43bc97.jpg" alt="">
-            <p class="today-left-center-bg">¥19.00</p>
-          </div>
-          <div class="today-left-bottom">
-            <p class="bottom-title1">进口山竹 500g</p>
-            <p class="bottom-title2">今日份的新鲜</p>
-          </div>
-        </div>
-        <div class="today-right">
-          <div class="today-right-set">
-            <div class="set-top">
-              <p class="set-top-title">正宗小龙虾</p>
-              <p class="set-top-text">鲜活秒杀</p>
-            </div>
-            <div class="set-image">
-              <img class="set-image-img" src="../assets/image/5ae422c8N81829b22.jpg" alt="">
-            </div>
-            <p class="set-text">限量500份</p>
-          </div>
+<!--      <div class="today">-->
+<!--        <div class="today-left">-->
+<!--          <div class="today-left-top">-->
+<!--            <p class="top-title1">今日推荐</p>-->
+<!--            <p class="top-title2">今日推荐特区</p>-->
+<!--            <p class="top-title3"></p>-->
+<!--          </div>-->
+<!--          <div class="today-left-center">-->
+<!--            <img class="today-left-center-image" src="../assets/image/106b97ecaf43bc97.jpg" alt="">-->
+<!--            <p class="today-left-center-bg">¥19.00</p>-->
+<!--          </div>-->
+<!--          <div class="today-left-bottom">-->
+<!--            <p class="bottom-title1">进口山竹 500g</p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="today-right">-->
+<!--          <div class="today-right-set">-->
+<!--            <div class="set-top">-->
+<!--              <p class="set-top-title">正宗小龙虾</p>-->
+<!--              <p class="set-top-text">鲜活秒杀</p>-->
+<!--            </div>-->
+<!--            <div class="set-image">-->
+<!--              <img class="set-image-img" src="../assets/image/5ae422c8N81829b22.jpg" alt="">-->
+<!--            </div>-->
+<!--            <p class="set-text">限量500份</p>-->
+<!--          </div>-->
 
-          <div class="today-right-set">
-            <div class="set-top">
-              <p class="set-top-title">绿色有机紫薯</p>
-              <p class="set-top-text">有机认证</p>
-            </div>
-            <div class="set-image">
-              <img class="set-image-img" src="../assets/image/59b92e63Nde7029ce.jpg" alt="">
-            </div>
-            <p class="set-text">秒杀9元/500g</p>
-          </div>
-        </div>
-      </div>
+<!--          <div class="today-right-set">-->
+<!--            <div class="set-top">-->
+<!--              <p class="set-top-title">绿色有机紫薯</p>-->
+<!--              <p class="set-top-text">有机认证</p>-->
+<!--            </div>-->
+<!--            <div class="set-image">-->
+<!--              <img class="set-image-img" src="../assets/image/59b92e63Nde7029ce.jpg" alt="">-->
+<!--            </div>-->
+<!--            <p class="set-text">秒杀9元/500g</p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
 
       <div class="activity">
         <img class="activity-left" src="../assets/image/special_pic_home1@2x.png" alt="">
@@ -483,7 +482,7 @@
 
   .publicity {
     width: 100%;
-    height: 10vw;
+    height: auto;
     margin-top: 3vw;
     padding: 0 3.2vw;
     box-sizing: border-box;
@@ -492,7 +491,7 @@
 
   .publicity-view {
     width: 100%;
-    height: 100%;
+    height: 10vw;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -769,32 +768,32 @@
   }
 
   .time {
-    font-size: 12px;
+    font-size: 3vw;
     color: #4077FF;
   }
 
   .discount-left p {
     width: 100%;
     height: 5vw;
-    font-size: 10px;
+    font-size: 3.84vw;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
   .discount-left p:nth-child(1) {
-    font-size: 12px;
+    font-size: 3.84vw;
   }
 
   .discount-left img {
-    width: 80%;
+    width: 75%;
     height: 40%;
-    margin: 5px;
+    margin: 1vw;
   }
 
   .discount-left p:last-child {
     color: red;
-    font-size: 12px;
+    font-size: 3vw;
   }
 
   .discount-right {
@@ -806,7 +805,6 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-
   }
 
   .discount-view {
@@ -821,8 +819,8 @@
     background-size: 14vw 14vw;
     background-repeat: no-repeat;
     background-position: 90% center;
-    border-left: 0.5px solid #eeeeee;
-    border-bottom: 0.5px solid #eeeeee;
+    border-left: 0.1vw solid #eeeeee;
+    border-bottom: 0.1vw solid #eeeeee;
   }
 
   .discount-view:nth-child(2), .discount-view:nth-child(4) {
@@ -832,9 +830,9 @@
   .discount-view p {
     padding-left: 2.5vw;
     height: 4vw;
-    font-size: 10px;
+    font-size: 3vw;
     color: #333333;
-    margin-top: 2.5px;
+    margin-top: 0.5vw;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -842,20 +840,18 @@
 
   .discount-view p:nth-child(3) {
     color: red;
-    font-size: 12px;
+    font-size: 2.7vw;
   }
 
   .discount-view p:nth-child(4) {
     color: #CCCCCC;
-    font-size: 10px;
+    font-size: 2.7vw;
     text-decoration: line-through;
   }
 
   .discount-view p:nth-child(1) {
-    font-size: 12px;
+    font-size: 3.5vw;
   }
-
-
 
 
   .today{
@@ -877,12 +873,12 @@
     position: relative;
     align-items: center;
     justify-content: center;
-    border-right: 0.5pt solid #f8f8f8;
+    border-right: 0.1vw solid #f8f8f8;
   }
 
   .today-left-top {
     flex: 1;
-    height: 11vw;
+    height: 14vw;
     margin-left: 7%;
     display: flex;
     flex-wrap: wrap;
@@ -893,14 +889,15 @@
   .top-title1{
     width: 100%;
     color: #2AC845;
-    font-size: 15px;
+    font-size: 4.5vw;
     font-weight: bold;
+    /*margin-top: 2vw;*/
   }
 
   .top-title2{
     width: 100%;
     color: #A6A8B6;
-    font-size: 12px;
+    font-size: 3.2vw;
   }
 
   .top-title3{
@@ -943,7 +940,7 @@
 
   .today-left-bottom {
     flex: 1;
-    height: 11vw;
+    height: 8vw;
     margin-left: 7%;
     display: flex;
     flex-wrap: wrap;
@@ -953,7 +950,7 @@
 
   .bottom-title1{
     width: 100%;
-    font-size: 13px;
+    font-size: 3.84vw;
     color: #333333;
   }
 
@@ -984,7 +981,7 @@
   }
 
   .today-right-set:nth-child(1){
-    border-bottom: 0.5pt solid #f8f8f8;
+    border-bottom: 0.1vw solid #f8f8f8;
   }
 
   .set-image {
@@ -1005,13 +1002,13 @@
 
   .set-text{
     color: white;
-    font-size: 10px;
-    padding: 2px 7px;
-    border-radius: 20px;
+    font-size: 3vw;
+    padding: 0.5vw 2vw;
+    border-radius: 20vw;
     background-color: brown;
     position: absolute;
-    bottom: 10px;
-    left:10px;
+    bottom: 2vw;
+    left: 2.8vw;
   }
 
   .set-top {
@@ -1028,8 +1025,8 @@
 
   .set-top-title{
     width: auto;
-    height: 20px;
-    font-size: 14px;
+    height: 5.5vw;
+    font-size: 3.8vw;
     color: #666666;
   }
 
@@ -1051,7 +1048,6 @@
     justify-content: center;
   }
 
-
   .NearbyBusinesses {
     width: 100%;
     margin-top: 3vw;
@@ -1061,18 +1057,18 @@
 
   .all-top {
     flex: 1;
-    padding: 0 3%;
+    padding: 0 3.2vw;
     height: 10vw;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 0.5pt solid #f8f8f8;
+    border-bottom: 0.1vw solid #f8f8f8;
   }
 
   .add-top-merchant{
     width: auto;
     height: 100%;
-    font-size: 15px;
+    font-size: 3.84vw;
     color: #333333;
     font-weight: bold;
     display: flex;
@@ -1083,7 +1079,7 @@
   .add-top-add {
     width: auto;
     height: 100%;
-    font-size: 12px;
+    font-size: 3.84vw;
     color: #6d6d72;
     display: flex;
     flex-direction: row;
@@ -1092,18 +1088,18 @@
   }
 
   .add-top-add-go{
-    width: 15px;
+    width: 5vw;
     height: 100%;
     display: inline-block;
     background-image: url("../assets/image/icon_go_22_gray@2x.png");
-    background-size: 15px 15px;
+    background-size: 5vw 5vw;
     background-repeat: no-repeat;
     background-position: center center;
   }
 
   .NearbyBusinesses-set {
     flex: 1;
-    padding: 0 3%;
+    padding: 0 3.2vw;
   }
 
   .NearbyBusinesses-set-item {
@@ -1118,19 +1114,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: 0.5pt solid #f8f8f8;
+    border-bottom: 0.1vw solid #f8f8f8;
   }
 
   .index-left-image{
-    width: 29%;
-    height: 85%;
-    margin: 2.5% 3% 2.5% 0;
+    width: 24vw;
+    height: 24vw;
+    margin: 3vw 3vw 3vw 0;
   }
 
   .index-right-box {
     flex: 1;
-    height: 85%;
-    margin: 2.5% 0;
+    height: 24vw;
+    margin: 3vw 0;
     display: flex;
     flex-wrap: wrap;
     align-content: space-between;
@@ -1139,7 +1135,7 @@
 
   .index-right-box-title{
     flex: 1;
-    font-size: 14px;
+    font-size: 4vw;
     color: #333333;
   }
 
@@ -1158,26 +1154,26 @@
 
   .center-top-num {
     width: 40%;
-    height: 6px;
+    height: 1.6vw;
     background-color: #FFc000;
     margin-right: 5%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    border-radius: 10px;
+    border-radius: 30vw;
   }
 
   .center-top-num-length{
     width: 80%;
-    height: 6px;
+    height: 1.6vw;
     display: inline-block;
     background-color: red;
-    border-radius: 10px;
+    border-radius: 30vw;
   }
 
   .center-top-text{
     width: auto;
-    font-size: 12px;
+    font-size: 3.84vw;
     color: #6d6d72;
   }
 
@@ -1197,33 +1193,33 @@
   }
 
   .money-key1 {
-    font-size: 10px;
+    font-size: 3.84vw;
     color: red;
-    margin-right: 10px;
+    margin-right: 2vw;
   }
 
   .money-value1{
-    font-size: 16px;
+    font-size: 4vw;
     color: red;
   }
 
   .money-key2 {
-    font-size: 10px;
+    font-size: 3.84vw;
     color: #6d6d72;
-    /*text-decoration: line-through;*/
+    text-decoration: line-through;
   }
 
   .money-value2{
-    font-size: 13px;
+    font-size: 4vw;
     color: #6d6d72;
   }
 
   .center-bottom-addShop{
-    padding: 5px 10px;
+    padding: 1.2vw 2.2vw;
     background-color: red;
-    font-size: 12px;
+    font-size: 3.84vw;
     color: white;
-    border-radius: 20px;
+    border-radius: 30vw;
   }
 
   .index-right-box-footer {
@@ -1236,13 +1232,13 @@
 
   .footer-address{
     width: auto;
-    font-size: 12px;
+    font-size: 3.84vw;
     color: #6d6d72;
   }
 
   .footer-distance{
     width: auto;
-    font-size: 12px;
+    font-size: 3.84vw;
     color: #6d6d72;
   }
 

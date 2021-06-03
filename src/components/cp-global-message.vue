@@ -4,6 +4,10 @@
       <img class="_dialogViewImage" src="../assets/image/icon_empty1@2x.png" alt="">
       <span class="_dialogViewTitle">暂无商品记录</span>
     </div>
+    <div class="_dialogView" v-show="comment">
+      <img class="_dialogViewImage" src="../assets/image/icon_empty2@2x.png" alt="">
+      <span class="_dialogViewTitle">暂无评论</span>
+    </div>
   </div>
 </template>
 
@@ -11,7 +15,7 @@
   export default {
     props:{
       message:Boolean,
-
+      comment:Boolean,
     },
     name: "cp-global-message",
     data(){

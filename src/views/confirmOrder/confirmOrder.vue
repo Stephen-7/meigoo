@@ -126,7 +126,7 @@
 
     <div class="bottomBar">
       <p class="bottomBarPrice">合计<span class="bottomBarMoney">¥0</span></p>
-      <p class="bottomBarBuyNow">立即购买</p>
+      <p class="bottomBarBuyNow" @click="toPayment">立即购买</p>
     </div>
 
     <!--    <cpGlobalMessage :message="'message'" v-show="listArr.length === 0"/>-->
@@ -147,6 +147,10 @@
       selectAddress(state){
         this.isAddress = state;
       },
+
+      toPayment(){
+        this.$router.push('/payment')
+      }
     },
   }
 </script>

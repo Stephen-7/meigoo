@@ -87,6 +87,16 @@ const router = new Router({
       name: 'spike',
       component: (resolve) => require(['@/views/spike/spike'], resolve),
     },
+    {
+      path: '/payment',
+      name: 'payment',
+      component: (resolve) => require(['@/views/payment/payment'], resolve),
+    },
+    {
+      path: '/productReviews',
+      name: 'productReviews',
+      component: (resolve) => require(['@/views/productReviews/productReviews'], resolve),
+    },
   ]
 });
 
