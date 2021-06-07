@@ -2,9 +2,9 @@
   <div class="view">
     <div style="z-index: 9"><cpGlobalTitle :is-back="true" :isTitle="'商品评论'"/></div>
     <div class="list">
-      <cpGlobalBackComment v-for="(item,index) in listArr" :key="index"/>
+      <cpGlobalComment v-for="(item,index) in listArr" :key="index"/>
     </div>
-    <cpGlobalMessage :comment="'comment'" v-show="listArr.length === 0"/>
+    <cpGlobalMessage :comment="true" v-show="listArr.length === 0"/>
   </div>
 </template>
 

@@ -22,9 +22,9 @@
 
 <script>
   export default {
+    name: "cp-global-comment",
     props: {
     },
-    name: "cp-global-comment"
   }
 </script>
 

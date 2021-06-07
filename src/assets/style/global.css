@@ -3,12 +3,18 @@ ul{
 }
 
 input {
-  background-color: transparent;
   border: 0;
+  background-color: transparent;
 }
 
 input::-webkit-input-placeholder {
-  color: #cccccc;
+  color: #CCCCCC;
+}
+
+textarea {
+  border: 0;
+  resize: none;
+  background-color: transparent;
 }
 
 

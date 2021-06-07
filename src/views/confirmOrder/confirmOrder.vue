@@ -5,10 +5,10 @@
     </div>
 
     <div class="address">
-      <div class="addressLeft">
+      <div class="addressLeft" @click.stop="$router.push(`/shippingAddress?type=add`)">
         <img class="addressLeftIcon" src="../../assets/image/icon_location_22_line@2x.png" alt="">
-        <span class="addressLeftTitle" v-show="!isAddress" @click="selectAddress(true)">请填写收获地址</span>
-        <div class="addressLeftContent" v-show="isAddress" @click="selectAddress(false)">
+        <p class="addressLeftTitle" v-show="!isAddress">请填写收获地址</p>
+        <div class="addressLeftContent" v-show="isAddress">
           <p class="addressLeftContentName">王敏<span class="addressLeftContentPhone">18822221383</span></p>
           <span class="addressLeftTitle">中国广东省深圳市宝山区示范新村307号（爱心大楼旁）</span>
         </div>
@@ -193,7 +193,7 @@
   }
 
   .addressLeft {
-    width: auto;
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: flex-start;

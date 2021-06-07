@@ -1,39 +1,34 @@
 <template>
-  <div>
-    <div class="cp_item" v-for="(item,index) in assetTypeList" :key="index">
-      <div class="cp_type">
-        <p class="cp_className">{{item.className}}</p>
-        <p class="cp_times">{{item.times}}</p>
-      </div>
-      <p class="cp_price" :class="item.prices < 0?'lessColor':'addColor'">¥{{item.prices}}</p>
+  <div class="cp_item">
+    <div class="cp_type">
+      <p class="cp_className">{{item.className}}</p>
+      <p class="cp_times">{{item.times}}</p>
     </div>
+    <p class="cp_price" :class="item.prices < 0?'lessColor':'addColor'">¥{{item.prices}}</p>
   </div>
 </template>
 
 <script>
   export default {
-    props:{
-      assetTypeList:Array,
-    },
     name: "cp-global-assetType",
-    data(){
-      return{
-
-      }
+    props: {
+      item: Object,
+    },
+    data() {
+      return {}
     },
   }
 </script>
 
 <style scoped>
   .cp_item {
-    width: calc(97vw - 6.3vw);
+    width: 100%;
     height: 20vw;
-    margin-left: 3vw;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
-    border-bottom: 0.3vw solid #EEEEEE;
+    border-bottom: 0.1vw solid #EEEEEE;
   }
 
   .cp_item:last-child {

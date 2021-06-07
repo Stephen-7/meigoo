@@ -20,6 +20,7 @@ import {
   SwipeItem,
   NoticeBar,
   Toast,
+  AddressEdit,
   Loading,
   List,
   Dialog,
@@ -27,9 +28,12 @@ import {
   Search,
   Field,
   Form,
+  Switch,
+  Area,
+  Popup,
   CountDown,
   Tabbar,
-  TabbarItem
+  TabbarItem,
 } from 'vant';
 
 Vue.use(Lazyload, {
@@ -48,6 +52,9 @@ Vue.use(Lazyload, {
   .use(Loading)
   .use(Sidebar)
   .use(SidebarItem)
+  .use(Switch)
+  .use(Area)
+  .use(Popup)
   .use(List)
   .use(PullRefresh)
   .use(Dialog)
@@ -61,4 +68,5 @@ Vue.use(Lazyload, {
   .use(TabbarItem)
   .use(Grid)
   .use(GridItem)
+  .use(AddressEdit)
   .use(CountDown);

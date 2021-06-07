@@ -54,7 +54,7 @@
         <p class="comment-top-num">宝贝评论（22条）</p>
         <p class="comment-top-all" @click="$router.push('/productReviews')">查看全部<span class="comment-top-go"></span></p>
       </div>
-      <cpGlobalBackComment v-for="(item,index) in 3" :key="index"/>
+      <cpGlobalComment v-for="(item,index) in 3" :key="index"/>
     </div>
 
     <div class="detailsImage">

@@ -1,26 +1,23 @@
 <template>
   <div class="view">
-    <cpGlobalTitle :isBack="true" :isTitle="'商品分类'" />
+    <cpGlobalTitle :isBorderColor="true" :isBack="true" :isTitle="'商品分类'" />
     <div class="type">
       <van-sidebar class="left" v-model="activeKey">
         <van-sidebar-item style="text-align: center" v-for="(item,index) in activeArr" :key="index" :title="item.title" />
       </van-sidebar>
+      <div class="right">
+        <cpGlobalPullRefresh>
+          <template v-slot:item>
+            <ul class="lists">
+              <li class="items" v-for="(index) in 40" :key="index">
+                <img class="itemsImage" src="../assets/image/class3.png" alt="">
+                <p class="itemsTitle">美妆护肤</p>
+              </li>
+            </ul>
+          </template>
+        </cpGlobalPullRefresh>
+      </div>
 
-      <van-pull-refresh class="right" v-model="refreshing" @refresh="onRefresh">
-        <van-list
-          v-model="loading"
-          :finished="finished"
-          finished-text="没有更多了"
-          @load="onLoad"
-        >
-          <ul class="lists">
-            <li class="items" v-for="(index) in 40" :key="index">
-              <img class="itemsImage" src="../assets/image/class3.png" alt="">
-              <p class="itemsTitle">美妆护肤</p>
-            </li>
-          </ul>
-        </van-list>
-      </van-pull-refresh>
     </div>
   </div>
 </template>
@@ -30,6 +27,7 @@
     name: "classification",
     data() {
       return {
+        activeKey: 0,
         activeArr:[
           {
             id:1,
@@ -56,38 +54,10 @@
             title:"电脑",
           },
         ],
-        list:[],
-        activeKey: 0,
-        loading: false,
-        finished: false,
-        refreshing: false,
       };
     },
     methods: {
-      onLoad() {
-        setTimeout(() => {
-          if (this.refreshing) {
-            // this.list = [];
-            this.refreshing = false;
-          }
-          // for (let i = 0; i < 3; i++) {
-          //   this.list.push(this.list.length + 1);
-          // }
-          this.loading = false;
-          // if (this.list.length >= 20) {
-          this.finished = true;
-          // }
-        }, 1000);
-      },
-      onRefresh() {
-        // 清空列表数据
-        this.finished = false;
 
-        // 重新加载数据
-        // 将 loading 设置为 true，表示处于加载状态
-        this.loading = true;
-        this.onLoad();
-      },
     },
   }
 </script>
@@ -128,7 +98,6 @@
     display: grid;
     grid-gap: 10px;
     grid-template-columns: 1.5fr 1.5fr 1.5fr;
-    /*background-color: red;*/
   }
 
   .items{
@@ -140,14 +109,6 @@
     flex-direction: column;
     background-color: white;
   }
-
-  /*.items:nth-child(2){*/
-  /*  margin: 3.2vw 2.5vw 0 2.5vw;*/
-  /*}*/
-
-  /*.items:nth-child(5){*/
-  /*  margin: 3.2vw 2.5vw 0 2.5vw;*/
-  /*}*/
 
   .itemsImage{
     width: 20.27vw;

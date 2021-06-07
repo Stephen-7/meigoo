@@ -46,7 +46,7 @@
     <div class="common">
       <p class="commonTitle">其他服务</p>
       <ul class="commonList">
-        <li class="commonItem" v-for="(item,index) in otherServiceArr" :key="index">
+        <li class="commonItem" v-for="(item,index) in otherServiceArr" @click="$router.push(item.path?item.path:'/')" :key="index">
           <van-icon size="30" :badge="item.num" :name="item.icon"/>
           <p class="commonItemText">{{item.title}}</p>
         </li>
@@ -74,16 +74,19 @@
             id: 1,
             price: "2348.00",
             title: "红包余额",
+            path:"",
           },
           {
             id: 2,
             price: "348.00",
             title: "发团额",
+            path:"",
           },
           {
             id: 3,
             price: "248.00",
             title: "拼团券",
+            path:"",
           },
         ],
         groupBuyArr: [
@@ -91,24 +94,28 @@
             id: 1,
             num: 9,
             title: "全部",
+            path:"",
             icon: require('@/assets/image/icon_grouporder_1_24@2x.png'),
           },
           {
             id: 2,
             num: 9,
             title: "待发货",
+            path:"",
             icon: require('@/assets/image/icon_grouporder_2_24@2x.png'),
           },
           {
             id: 3,
             num: 9,
             title: "待收货",
+            path:"",
             icon: require('@/assets/image/icon_grouporder_3_24@2x.png'),
           },
           {
             id: 4,
             num: 9,
             title: "待评价",
+            path:"",
             icon: require('@/assets/image/icon_grouporder_4_24@2x.png'),
           },
         ],
@@ -117,36 +124,42 @@
             id: 1,
             num: "",
             title: "全部",
+            path:"",
             icon: require('@/assets/image/icon_grouporder_5_24@2x.png'),
           },
           {
             id: 2,
             num: "",
             title: "待付款",
+            path:"",
             icon: require('@/assets/image/icon_grouporder_6_24@2x.png'),
           },
           {
             id: 3,
             num: "",
             title: "待发货",
+            path:"",
             icon: require('@/assets/image/icon_grouporder_7_24@2x.png'),
           },
           {
             id: 4,
             num: "",
             title: "待收货",
+            path:"",
             icon: require('@/assets/image/icon_grouporder_8_24@2x.png'),
           },
           {
             id: 5,
             num: "",
             title: "待评价",
+            path:"",
             icon: require('@/assets/image/icon_grouporder_10_24@2x.png'),
           },
           {
             id: 6,
             num: "",
             title: "售后",
+            path:"",
             icon: require('@/assets/image/icon_grouporder_9_24@2x.png'),
           },
         ],
@@ -155,48 +168,56 @@
             id: 1,
             num: "",
             title: "我的团队",
+            path:"",
             icon: require('@/assets/image/icon_team_20@2x.png'),
           },
           {
             id: 2,
             num: "",
             title: "拼团记录",
+            path:"",
             icon: require('@/assets/image/icon_other_2_24@2x.png'),
           },
           {
             id: 3,
             num: "",
             title: "发团记录",
+            path:"",
             icon: require('@/assets/image/icon_other_8_24@2x.png'),
           },
           {
             id: 4,
             num: "",
             title: "联系客服",
+            path:"",
             icon: require('@/assets/image/icon_sevice_24_black@2x.png'),
           },
           {
             id: 5,
             num: "",
             title: "常见问题",
+            path:"/commonProblem",
             icon: require('@/assets/image/icon_other_5_24@2x.png'),
           },
           {
             id: 6,
             num: "",
             title: "我的收藏",
+            path:"",
             icon: require('@/assets/image/icon_other_3_24@2x.png'),
           },
           {
             id: 7,
             num: "",
             title: "申请分公司",
+            path:"",
             icon: require('@/assets/image/icon_other_7_24@2x.png'),
           },
           {
             id: 8,
             num: "",
             title: "浏览记录",
+            path:"",
             icon: require('@/assets/image/icon_other_6_24@2x.png'),
           },
         ],

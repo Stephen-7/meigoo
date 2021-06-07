@@ -6,7 +6,9 @@ import cpGlobalSearch from "../components/cp-global-search";
 import cpGlobalMessage from "../components/cp-global-message";
 import cpGlobalAssetType from "../components/cp-global-assetType";
 import cpGlobalBackSearch from "../components/cp-global-backSearch";
-import cpGlobalBackComment from "../components/cp-global-comment";
+import cpGlobalComment from "../components/cp-global-comment";
+import cpGlobalPullRefresh from "../components/cp-global-pullRefresh";
+import cpGlobalArea from "../components/cp-global-area";
 
 Vue.component('cpGlobalTitle', cpGlobalTitle);
 Vue.component('cpGlobalLoading', cpGlobalLoading);
@@ -14,4 +16,6 @@ Vue.component('cpGlobalSearch', cpGlobalSearch);
 Vue.component('cpGlobalMessage', cpGlobalMessage);
 Vue.component('cpGlobalAssetType', cpGlobalAssetType);
 Vue.component('cpGlobalBackSearch', cpGlobalBackSearch);
-Vue.component('cpGlobalBackComment', cpGlobalBackComment);
+Vue.component('cpGlobalComment', cpGlobalComment);
+Vue.component('cpGlobalPullRefresh', cpGlobalPullRefresh);
+Vue.component('cpGlobalArea', cpGlobalArea);

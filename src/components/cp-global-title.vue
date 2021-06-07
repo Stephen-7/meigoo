@@ -1,5 +1,5 @@
 <template>
-  <div class="cp-title">
+  <div class="cp-title" :class="{'cp-border-color':isBorderColor}">
     <div class="cp-left">
       <p class="cp-back" v-show="isBack" @click="$router.back()"></p>
     </div>
@@ -12,15 +12,18 @@
 
 <script>
   export default {
+    name: "cp-global-title",
     props: {
-      isBack:{
-        type:Boolean,
+      isBack: {
+        type: Boolean,
       },
-      isTitle:{
-        type:String
-      }
+      isTitle: {
+        type: String
+      },
+      isBorderColor: {
+        type: Boolean
+      },
     },
-    name: "cp-global-title"
   }
 </script>
 
@@ -35,7 +38,10 @@
     justify-content: center;
     flex-direction: row;
     background-color: white;
-    /*border-bottom: 0.1vw solid #EEEEEE;*/
+  }
+
+  .cp-border-color {
+    border-bottom: 0.1vw solid #EEEEEE;
   }
 
   .cp-left {

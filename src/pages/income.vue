@@ -8,18 +8,15 @@
       </div>
     </div>
 
-    <van-pull-refresh class="list" v-model="refreshing" @refresh="onRefresh">
-      <van-list
-        v-model="loading"
-        :finished="finished"
-        finished-text="没有更多了"
-        @load="onLoad"
-      >
-        <div class="uls">
-          <cpGlobalAssetType :assetTypeList="list" />
-        </div>
-      </van-list>
-    </van-pull-refresh>
+    <div class="list">
+      <cpGlobalPullRefresh>
+        <template v-slot:item>
+          <div class="uls">
+            <cpGlobalAssetType v-for="(item,index) in list" :item="item" :key="index"/>
+          </div>
+        </template>
+      </cpGlobalPullRefresh>
+    </div>
   </div>
 </template>
 
@@ -30,52 +27,24 @@
       return {
         list: [
           {
-            className:"充值",
-            times:"2020-08-28 11:21:42",
-            prices:"30.00",
+            className: "充值",
+            times: "2020-08-28 11:21:42",
+            prices: "30.00",
           },
           {
-            className:"购买",
-            times:"2020-08-28 11:21:42",
-            prices:"-4200.00",
+            className: "购买",
+            times: "2020-08-28 11:21:42",
+            prices: "-4200.00",
           },
           {
-            className:"拼团失败奖励",
-            times:"2020-08-28 11:21:42",
-            prices:"4200.00",
+            className: "拼团失败奖励",
+            times: "2020-08-28 11:21:42",
+            prices: "4200.00",
           },
         ],
-        loading: false,
-        finished: false,
-        refreshing: false,
       }
     },
-    methods: {
-      onLoad() {
-        setTimeout(() => {
-          if (this.refreshing) {
-            // this.list = [];
-            this.refreshing = false;
-          }
-          // for (let i = 0; i < 3; i++) {
-          //   this.list.push(this.list.length + 1);
-          // }
-          this.loading = false;
-          // if (this.list.length >= 20) {
-            this.finished = true;
-          // }
-        }, 1000);
-      },
-      onRefresh() {
-        // 清空列表数据
-        this.finished = false;
-
-        // 重新加载数据
-        // 将 loading 设置为 true，表示处于加载状态
-        this.loading = true;
-        this.onLoad();
-      },
-    },
+    methods: {},
   }
 </script>
 
@@ -133,7 +102,7 @@
     width: 100%;
     height: calc(100vh - 33vw - 13.07vw - 13.05vw);
     overflow: scroll;
-    margin-bottom: 13.1vw;;
+    margin-bottom: 13.1vw;
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;

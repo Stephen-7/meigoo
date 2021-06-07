@@ -8,7 +8,7 @@
 
 <script>
   export default {
-    name: "cp-global-loading"
+    name: "cp-global-loading",
   }
 </script>
 

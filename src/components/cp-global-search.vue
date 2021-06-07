@@ -13,10 +13,10 @@
 
 <script>
   export default {
+    name: "cp-global-search",
     props:{
       searchType:String,
     },
-    name: "cp-global-search",
     data() {
       return {
         disabled:false,
