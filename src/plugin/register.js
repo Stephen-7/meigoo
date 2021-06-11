@@ -11,6 +11,7 @@ import cpGlobalPullRefresh from "../components/cp-global-pullRefresh";
 import cpGlobalArea from "../components/cp-global-area";
 import cpGlobalProductList from "../components/cp-global-productList";
 import cpGlobalTab from "../components/cp-global-tab";
+import cpGlobalOrderItem from "../components/cp-global-orderItem";
 
 Vue.component('cpGlobalTitle', cpGlobalTitle);
 Vue.component('cpGlobalLoading', cpGlobalLoading);
@@ -23,3 +24,4 @@ Vue.component('cpGlobalPullRefresh', cpGlobalPullRefresh);
 Vue.component('cpGlobalArea', cpGlobalArea);
 Vue.component('cpGlobalProductList', cpGlobalProductList);
 Vue.component('cpGlobalTab', cpGlobalTab);
+Vue.component('cpGlobalOrderItem', cpGlobalOrderItem);

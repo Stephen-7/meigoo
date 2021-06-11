@@ -5,7 +5,17 @@
       <cpGlobalTab :tabArr="tabArr" :tabIndex="tabIndex" @backTabIndex="getTabIndex"/>
     </div>
 
+    <div class="list" v-show="dataArr.length !== 0">
+      <cpGlobalPullRefresh>
+        <template v-slot:item>
+          <div class="uls">
+            <cpGlobalOrderItem :type="type"/>
+          </div>
+        </template>
+      </cpGlobalPullRefresh>
+    </div>
 
+    <cpGlobalMessage :message="'message'" v-show="dataArr.length === 0"/>
   </div>
 </template>
 
@@ -14,6 +24,8 @@
     name: "commodityOrder",
     data() {
       return {
+        //1.确认订单 2.商品订单
+        type: 2,
         searchValue: "",
         tabType: "",
         tabIndex: 0,
@@ -35,6 +47,7 @@
             title: "待评价",
           },
         ],
+        dataArr: [],
       }
     },
     methods: {
@@ -58,7 +71,7 @@
     mounted() {
       this.tabIndex = Number(this.$route.query.type);
       this.tabType = this.typeArr[this.$route.query.type];
-      this.getData()
+      // this.getData()
     },
     beforeDestroy() {
       this.searchValue = "";
@@ -90,7 +103,26 @@
     align-items: flex-start;
     justify-content: flex-start;
     flex-direction: column;
+    z-index: 9;
   }
 
+  .list {
+    width: 100%;
+    height: calc(100vh - 13.05vw);
+    overflow: scroll;
+    /*margin-bottom: 13.1vw;*/
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
 
+  .uls {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
 </style>
