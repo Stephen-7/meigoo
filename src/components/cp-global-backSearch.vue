@@ -5,7 +5,7 @@
     </div>
     <div class="cp_search_right">
       <img class="cp_search_right_img" src="../assets/image/icon_glass_22_d6@2x.png" @click="searchData">
-      <input class="cp_search_right_input" type="text" v-model="inputValue" placeholder="搜索商品热门关键词">
+      <input class="cp_search_right_input" type="text" v-model="inputValue" :placeholder="placeholder">
       <img class="cp_search_right_cancel" src="../assets/image/icon_close_22_cicle@2x.png" v-show="inputValue" @click="cancel">
     </div>
   </div>
@@ -14,6 +14,9 @@
 <script>
   export default {
     name: "cp-global-backSearch",
+    props:{
+      placeholder:String,
+    },
     data() {
       return {
         inputValue:"",

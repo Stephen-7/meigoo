@@ -1,7 +1,7 @@
 <template>
   <div class="view">
     <div class="top">
-      <cpGlobalBackSearch @backSearchValue="getSearchValue"/>
+      <cpGlobalBackSearch :placeholder="'搜索商品热门关键词'" @backSearchValue="getSearchValue"/>
     </div>
 
     <nav class="nav">

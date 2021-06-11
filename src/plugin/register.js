@@ -9,6 +9,8 @@ import cpGlobalBackSearch from "../components/cp-global-backSearch";
 import cpGlobalComment from "../components/cp-global-comment";
 import cpGlobalPullRefresh from "../components/cp-global-pullRefresh";
 import cpGlobalArea from "../components/cp-global-area";
+import cpGlobalProductList from "../components/cp-global-productList";
+import cpGlobalTab from "../components/cp-global-tab";
 
 Vue.component('cpGlobalTitle', cpGlobalTitle);
 Vue.component('cpGlobalLoading', cpGlobalLoading);
@@ -19,3 +21,5 @@ Vue.component('cpGlobalBackSearch', cpGlobalBackSearch);
 Vue.component('cpGlobalComment', cpGlobalComment);
 Vue.component('cpGlobalPullRefresh', cpGlobalPullRefresh);
 Vue.component('cpGlobalArea', cpGlobalArea);
+Vue.component('cpGlobalProductList', cpGlobalProductList);
+Vue.component('cpGlobalTab', cpGlobalTab);

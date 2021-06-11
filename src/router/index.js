@@ -88,11 +88,6 @@ const router = new Router({
       component: (resolve) => require(['@/views/shoppingCart/shoppingCart'], resolve),
     },
     {
-      path: '/confirmOrder',
-      name: 'confirmOrder',
-      component: (resolve) => require(['@/views/confirmOrder/confirmOrder'], resolve),
-    },
-    {
       path: '/eventNews',
       name: 'eventNews',
       component: (resolve) => require(['@/views/message/eventNews'], resolve),
@@ -118,6 +113,47 @@ const router = new Router({
       component: (resolve) => require(['@/views/productReviews/productReviews'], resolve),
     },
 
+    {
+      path: '/browsingRecords',
+      name: 'browsingRecords',
+      component: (resolve) => require(['@/views/personalCenter/browsingRecords'], resolve),
+    },
+    {
+      path: '/groupJoinRecord',
+      name: 'groupJoinRecord',
+      component: (resolve) => require(['@/views/personalCenter/groupJoinRecord'], resolve),
+    },
+    {
+      path: '/myCollection',
+      name: 'myCollection',
+      component: (resolve) => require(['@/views/personalCenter/myCollection'], resolve),
+    },
+    {
+      path: '/myTeam',
+      name: 'myTeam',
+      component: (resolve) => require(['@/views/personalCenter/myTeam'], resolve),
+    },
+    {
+      path: '/groupRecord',
+      name: 'groupRecord',
+      component: (resolve) => require(['@/views/personalCenter/groupRecord'], resolve),
+    },
+    {
+      path: '/applyForBranch',
+      name: 'applyForBranch',
+      component: (resolve) => require(['@/views/personalCenter/applyForBranch'], resolve),
+    },
+
+    {
+      path: '/commodityOrder',
+      name: 'commodityOrder',
+      component: (resolve) => require(['@/views/commodityOrder/commodityOrder'], resolve),
+    },
+    {
+      path: '/confirmOrder',
+      name: 'confirmOrder',
+      component: (resolve) => require(['@/views/commodityOrder/confirmOrder'], resolve),
+    },
   ]
 });
 

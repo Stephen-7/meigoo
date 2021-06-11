@@ -36,7 +36,7 @@
     <div class="common">
       <p class="commonTitle">商品订单</p>
       <ul class="commonList">
-        <li class="commonItem" v-for="(item,index) in orderArr" :key="index">
+        <li class="commonItem" v-for="(item,index) in orderArr" @click="$router.push(item.path?item.path:'/')" :key="index">
           <van-icon size="30" :badge="item.num" :name="item.icon"/>
           <p class="commonItemText">{{item.title}}</p>
         </li>
@@ -46,7 +46,8 @@
     <div class="common">
       <p class="commonTitle">其他服务</p>
       <ul class="commonList">
-        <li class="commonItem" v-for="(item,index) in otherServiceArr" @click="$router.push(item.path?item.path:'/')" :key="index">
+        <li class="commonItem" v-for="(item,index) in otherServiceArr" @click="$router.push(item.path?item.path:'/')"
+            :key="index">
           <van-icon size="30" :badge="item.num" :name="item.icon"/>
           <p class="commonItemText">{{item.title}}</p>
         </li>
@@ -59,8 +60,8 @@
   export default {
     name: "mine",
     components: {},
-    computed:{
-      userInfo(){
+    computed: {
+      userInfo() {
         // let userInfo = JSON.parse(sessionStorage.getItem('userInfo'))
         let userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
         return userInfo
@@ -68,25 +69,25 @@
     },
     data() {
       return {
-        vipArr:['vip1','vip2','vip3','vip4'],
+        vipArr: ['vip1', 'vip2', 'vip3', 'vip4'],
         assetsArr: [
           {
             id: 1,
             price: "2348.00",
             title: "红包余额",
-            path:"",
+            path: "",
           },
           {
             id: 2,
             price: "348.00",
             title: "发团额",
-            path:"",
+            path: "",
           },
           {
             id: 3,
             price: "248.00",
             title: "拼团券",
-            path:"",
+            path: "",
           },
         ],
         groupBuyArr: [
@@ -94,28 +95,28 @@
             id: 1,
             num: 9,
             title: "全部",
-            path:"",
+            path: "",
             icon: require('@/assets/image/icon_grouporder_1_24@2x.png'),
           },
           {
             id: 2,
             num: 9,
             title: "待发货",
-            path:"",
+            path: "",
             icon: require('@/assets/image/icon_grouporder_2_24@2x.png'),
           },
           {
             id: 3,
             num: 9,
             title: "待收货",
-            path:"",
+            path: "",
             icon: require('@/assets/image/icon_grouporder_3_24@2x.png'),
           },
           {
             id: 4,
             num: 9,
             title: "待评价",
-            path:"",
+            path: "",
             icon: require('@/assets/image/icon_grouporder_4_24@2x.png'),
           },
         ],
@@ -124,42 +125,42 @@
             id: 1,
             num: "",
             title: "全部",
-            path:"",
+            path: "/commodityOrder?type=0",
             icon: require('@/assets/image/icon_grouporder_5_24@2x.png'),
           },
           {
             id: 2,
-            num: "",
+            num: 5,
             title: "待付款",
-            path:"",
+            path: "/commodityOrder?type=1",
             icon: require('@/assets/image/icon_grouporder_6_24@2x.png'),
           },
           {
             id: 3,
             num: "",
             title: "待发货",
-            path:"",
+            path: "/commodityOrder?type=2",
             icon: require('@/assets/image/icon_grouporder_7_24@2x.png'),
           },
           {
             id: 4,
             num: "",
             title: "待收货",
-            path:"",
+            path: "/commodityOrder?type=3",
             icon: require('@/assets/image/icon_grouporder_8_24@2x.png'),
           },
           {
             id: 5,
             num: "",
             title: "待评价",
-            path:"",
+            path: "/commodityOrder?type=4",
             icon: require('@/assets/image/icon_grouporder_10_24@2x.png'),
           },
           {
             id: 6,
             num: "",
             title: "售后",
-            path:"",
+            path: "/commodityOrder?type=5",
             icon: require('@/assets/image/icon_grouporder_9_24@2x.png'),
           },
         ],
@@ -168,63 +169,64 @@
             id: 1,
             num: "",
             title: "我的团队",
-            path:"",
+            path: "/myTeam",
             icon: require('@/assets/image/icon_team_20@2x.png'),
           },
           {
             id: 2,
             num: "",
             title: "拼团记录",
-            path:"",
+            path: "/groupJoinRecord",
             icon: require('@/assets/image/icon_other_2_24@2x.png'),
           },
           {
             id: 3,
             num: "",
             title: "发团记录",
-            path:"",
+            path: "/groupRecord",
             icon: require('@/assets/image/icon_other_8_24@2x.png'),
           },
           {
             id: 4,
             num: "",
             title: "联系客服",
-            path:"",
+            path: "",
             icon: require('@/assets/image/icon_sevice_24_black@2x.png'),
           },
           {
             id: 5,
             num: "",
             title: "常见问题",
-            path:"/commonProblem",
+            path: "/commonProblem",
             icon: require('@/assets/image/icon_other_5_24@2x.png'),
           },
           {
             id: 6,
             num: "",
             title: "我的收藏",
-            path:"",
+            path: "/myCollection",
             icon: require('@/assets/image/icon_other_3_24@2x.png'),
           },
           {
             id: 7,
             num: "",
             title: "申请分公司",
-            path:"",
+            path: "/applyForBranch",
             icon: require('@/assets/image/icon_other_7_24@2x.png'),
           },
           {
             id: 8,
             num: "",
             title: "浏览记录",
-            path:"",
+            path: "/browsingRecords",
             icon: require('@/assets/image/icon_other_6_24@2x.png'),
           },
         ],
       }
     },
     methods: {},
-    mounted() {}
+    mounted() {
+    }
   }
 </script>
 
@@ -248,7 +250,7 @@
     background-color: white;
   }
 
-  .user{
+  .user {
     width: 100%;
     height: 18vw;
     display: flex;
@@ -260,14 +262,14 @@
     box-sizing: border-box;
   }
 
-  .userIcon{
+  .userIcon {
     width: 16vw;
     height: 16vw;
     display: block;
     border-radius: 50%;
   }
 
-  .userType{
+  .userType {
     flex: 1;
     height: 100%;
     padding-left: 3vw;
@@ -278,14 +280,14 @@
     position: relative;
   }
 
-  .userName{
+  .userName {
     font-size: 4.5vw;
     font-weight: bold;
     color: #666666;
     margin-bottom: 0.5vw;
   }
 
-  .userGrade{
+  .userGrade {
     width: 18vw;
     height: 6vw;
     background-image: url("../assets/image/icon_vip1@2x.png");
@@ -294,23 +296,23 @@
     background-position: center center;
   }
 
-  .vip1{
+  .vip1 {
     background-image: url("../assets/image/icon_vip1@2x.png");
   }
 
-  .vip2{
+  .vip2 {
     background-image: url("../assets/image/icon_vip2@2x.png");
   }
 
-  .vip3{
+  .vip3 {
     background-image: url("../assets/image/icon_vip3@2x.png");
   }
 
-  .vip4{
+  .vip4 {
     background-image: url("../assets/image/icon_vip4@2x.png");
   }
 
-  .userSet{
+  .userSet {
     width: 10vw;
     height: 10vw;
     background-image: url("../assets/image/icon_setting_24_black@2x.png");
@@ -318,8 +320,8 @@
     background-repeat: no-repeat;
     background-position: center center;
     position: absolute;
-    top:22%;
-    right:0
+    top: 22%;
+    right: 0
   }
 
   .assets {
