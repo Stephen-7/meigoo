@@ -9,8 +9,8 @@
         <img class="addressLeftIcon" src="../../assets/image/icon_location_22_line@2x.png" alt="">
         <p class="addressLeftTitle" v-show="!isAddress">请填写收获地址</p>
         <div class="addressLeftContent" v-show="isAddress">
-          <p class="addressLeftContentName">王敏<span class="addressLeftContentPhone">18822221383</span></p>
-          <span class="addressLeftTitle">中国广东省深圳市宝山区示范新村307号（爱心大楼旁）</span>
+          <p class="addressLeftContentName">{{addressItem.name}}<span class="addressLeftContentPhone">{{addressItem.phone}}</span></p>
+          <span class="addressLeftTitle">{{addressItem.address}}</span>
         </div>
       </div>
       <div class="addressRight">
@@ -30,24 +30,28 @@
 </template>
 
 <script>
+  import {Toast} from 'vant';
   export default {
     name: "confirmOrder",
     data() {
       return {
         //1.确认订单 2.商品订单
         type:1,
+        addressItem:{
+          name:"王敏",
+          phone:"18822221383",
+          address:"中国广东省深圳市宝山区示范新村307号（爱心大楼旁）",
+        },
         listArr: [],
         checked: false,
-        isAddress:false,
+        isAddress:true,
       }
     },
     methods:{
-      selectAddress(state){
-        this.isAddress = state;
-      },
-
       toPayment(){
-        this.$router.push('/payment')
+        console.log(this.addressItem === 'object');
+        // Toast('请选择商品');
+        // this.$router.push('/payment')
       }
     },
   }

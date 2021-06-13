@@ -106,7 +106,7 @@
         setTimeout(()=>{
           this.$store.commit('hideLoading');
           Toast('支付成功');
-          this.$router.push('/mine')
+          this.$router.push('/commodityOrder?type=2')
         },3000);
       },
     }

@@ -1,18 +1,22 @@
 <template>
-  <div class="_dialog">
-    <div class="_dialogView" v-show="message">
-      <img class="_dialogViewImage" src="../assets/image/icon_empty1@2x.png" alt="">
-      <span class="_dialogViewTitle">暂无商品记录</span>
+  <div class="cp_dialog">
+    <div class="cp_dialogView" v-show="message">
+      <img class="cp_dialogViewImage" src="../assets/image/icon_empty1@2x.png" alt="">
+      <span class="cp_dialogViewTitle">暂无商品记录</span>
     </div>
-    <div class="_dialogView" v-show="comment">
-      <img class="_dialogViewImage" src="../assets/image/icon_empty2@2x.png" alt="">
-      <span class="_dialogViewTitle">暂无评论</span>
+    <div class="cp_dialog" v-show="notice">
+      <img class="cp_dialogViewImage" src="../assets/image/icon_empty1@2x.png" alt="">
+      <span class="cp_dialogViewTitle">暂无通知</span>
     </div>
-    <div class="_dialogView" v-show="address">
-      <img class="_dialogViewImage" src="../assets/image/icon_empty3@2x.png" alt="">
-      <span class="_dialogViewTitle">暂无收货地址</span>
-      <div class="_add">
-        <p class="_submit" @click="$router.push('/addAndChangeAddress')">添加地址</p>
+    <div class="cp_dialog" v-show="comment">
+      <img class="cp_dialogViewImage" src="../assets/image/icon_empty2@2x.png" alt="">
+      <span class="cp_dialogViewTitle">暂无评论</span>
+    </div>
+    <div class="cp_dialog" v-show="address">
+      <img class="cp_dialogViewImage" src="../assets/image/icon_empty3@2x.png" alt="">
+      <span class="cp_dialogViewTitle">暂无收货地址</span>
+      <div class="cp_add">
+        <p class="cp_submit" @click="$router.push('/addAndChangeAddress')">添加地址</p>
       </div>
     </div>
   </div>
@@ -23,6 +27,7 @@
     name: "cp-global-message",
     props:{
       message:Boolean,
+      notice:Boolean,
       comment:Boolean,
       address:Boolean,
     },
@@ -30,7 +35,7 @@
 </script>
 
 <style scoped>
-  ._dialog{
+  .cp_dialog{
     width: 100%;
     height: 100vh;
     display: flex;
@@ -43,20 +48,20 @@
     left: 0;
   }
 
-  ._dialogView{
+  .cp_dialogView{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
   }
 
-  ._dialogViewImage{
+  .cp_dialogViewImage{
     width: 33vw;
     height: 33vw;
     display: block;
   }
 
-  ._dialogViewTitle{
+  .cp_dialogViewTitle{
     font-size: 4vw;
     font-weight: 400;
     color: #999999;
@@ -64,7 +69,7 @@
     margin-top: 2vw;
   }
 
-  ._add {
+  .cp_add {
     width: 100%;
     height: 11.73vw;
     display: flex;
@@ -73,7 +78,7 @@
     margin-top: 13vw;
   }
 
-  ._submit {
+  .cp_submit {
     width: 53.33vw;
     height: 11.73vw;
     border-radius: 5.87vw;

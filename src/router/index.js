@@ -88,9 +88,19 @@ const router = new Router({
       component: (resolve) => require(['@/views/shoppingCart/shoppingCart'], resolve),
     },
     {
+      path: '/notice',
+      name: 'notice',
+      component: (resolve) => require(['@/views/message/notice'], resolve),
+    },
+    {
       path: '/eventNews',
       name: 'eventNews',
       component: (resolve) => require(['@/views/message/eventNews'], resolve),
+    },
+    {
+      path: '/orderMessage',
+      name: 'orderMessage',
+      component: (resolve) => require(['@/views/message/orderMessage'], resolve),
     },
     {
       path: '/spike',

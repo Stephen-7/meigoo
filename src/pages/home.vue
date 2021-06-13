@@ -7,7 +7,7 @@
         </div>
       </template>
       <template v-slot:news>
-        <div class="searchType" @click="$router.push('/eventNews')">
+        <div class="searchType" @click="$router.push('/notice')">
           <img class="img" src="../assets/image/icon_message_24_black@2x.png" alt="">
         </div>
       </template>

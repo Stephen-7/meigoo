@@ -1,7 +1,7 @@
 <template>
   <div class="view">
     <div class="topBar">
-      <cpGlobalTitle :isBorderColor="true" :isBack="true" :isTitle="'活动消息'"/>
+      <cpGlobalTitle :isBorderColor="true" :isBack="true" :isTitle="'订单消息'"/>
     </div>
 
     <div class="list" v-show="dataArr.length !== 0">
@@ -10,11 +10,11 @@
           <div class="item" v-for="(item,index) in dataArr" :key="index" @click="changePath(item.path)">
             <p class="time">{{item.time}}</p>
             <div class="box">
-              <img class="boxBanner" :src="item.banner" alt="">
               <div class="boxType">
                 <p class="boxTitle">{{item.title}}</p>
                 <p class="boxIcon"></p>
               </div>
+              <p class="boxMessage">{{item.message}}</p>
             </div>
           </div>
         </template>
@@ -27,23 +27,23 @@
 
 <script>
   export default {
-    name: "eventNews",
+    name: "orderMessage",
     data() {
       return {
         dataArr: [
           {
             id: 1,
-            path: "/",
-            title: "关于商品退换货的公告,请留意后续信息",
+            path: "/commodityOrder?type=3",
+            title: "您的订单发货了",
             time: "2019-12-11 10:00",
-            banner:require('@/assets/image/special_shopbanner1@2x.png'),
+            message: "您申请的售后订单[65449464651]已经审核通过，请留意后续信息",
           },
           {
             id: 2,
-            path: "/",
-            title: "关于商品退换货的公告,请留意后续信息",
+            path: "/commodityOrder?type=3",
+            title: "您的订单发货了",
             time: "2019-12-11 10:00",
-            banner:require('@/assets/image/special_shopbanner1@2x.png'),
+            message: "您申请的售后订单[65449464651]已经审核通过，请留意后续信息",
           },
         ]
       };
@@ -107,17 +107,14 @@
     width: 100%;
     height: auto;
     margin-top: 2.67vw;
-    /*padding: 4.27vw;*/
-    /*box-sizing: border-box;*/
+    padding: 4.27vw;
+    box-sizing: border-box;
     background: #FFFFFF;
     border-radius: 1.07vw;
   }
 
   .boxType {
     width: 100%;
-    height: 14vw;
-    padding: 4vw;
-    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -148,9 +145,18 @@
     background-position: center center;
   }
 
-  .boxBanner {
+  .boxMessage {
     width: 100%;
-    height: 28.27vw;
-    display: block;
+    margin-top: 2.13vw;
+    font-size: 3.73vw;
+    font-weight: 400;
+    color: #999999;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    white-space: normal !important;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
 </style>

@@ -9,8 +9,8 @@
         <cpGlobalPullRefresh>
           <template v-slot:item>
             <ul class="lists">
-              <li class="items" v-for="(index) in 40" :key="index">
-                <img class="itemsImage" src="../assets/image/class3.png" alt="">
+              <li class="items" v-for="(index) in 8" :key="index">
+                <img class="itemsImage" src="../assets/image/details@2x.png" alt="">
                 <p class="itemsTitle">美妆护肤</p>
               </li>
             </ul>

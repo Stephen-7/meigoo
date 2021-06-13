@@ -7,6 +7,7 @@
       </div>
       <div class="informationRight">
         <p class="informationRightState" v-show="type === 2">待付款</p>
+<!--        <p class="informationRightState" v-show="type === 2">待确认收货</p>-->
       </div>
     </div>
     <div class="items">
@@ -36,9 +37,13 @@
       <p class="totalName">共6件商品 合计：</p>
       <span class="totalNum">¥3265</span>
     </div>
+<!--    <div class="bottom" v-show="type === 2">-->
+<!--      <span class="bottomCancel">取消订单</span>-->
+<!--      <span class="bottomToPay">去付款</span>-->
+<!--    </div>-->
     <div class="bottom" v-show="type === 2">
-      <span class="bottomCancel">取消订单</span>
-      <span class="bottomToPay">去付款</span>
+      <span class="bottomCancel">去评价</span>
+      <span class="bottomToPay">确认收货</span>
     </div>
   </div>
 </template>
