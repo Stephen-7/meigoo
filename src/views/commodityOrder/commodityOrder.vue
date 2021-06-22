@@ -8,8 +8,8 @@
     <div class="list" v-show="dataArr.length !== 0">
       <cpGlobalPullRefresh>
         <template v-slot:item>
-          <div class="uls">
-            <cpGlobalOrderItem :type="type"/>
+          <div class="uls" @click.stop="$router.push('/orderDetails')">
+            <cpGlobalOrderItem :type="type" />
           </div>
         </template>
       </cpGlobalPullRefresh>

@@ -17,7 +17,6 @@
           </template>
         </cpGlobalPullRefresh>
       </div>
-
     </div>
   </div>
 </template>

@@ -7,6 +7,9 @@ import store from './vuex/store'
 import 'vant/lib/index.css';
 import './plugin/mock'
 import '../src/assets/style/global.css'
+import animate from "animate.css"
+
+Vue.use(animate)
 
 Vue.config.productionTip = false;
 new Vue({

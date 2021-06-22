@@ -164,6 +164,11 @@ const router = new Router({
       name: 'confirmOrder',
       component: (resolve) => require(['@/views/commodityOrder/confirmOrder'], resolve),
     },
+    {
+      path: '/orderDetails',
+      name: 'orderDetails',
+      component: (resolve) => require(['@/views/commodityOrder/orderDetails'], resolve),
+    },
   ]
 });
 

@@ -41,6 +41,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     background-color: #F8F8F8;
     z-index: 8;
     position: fixed;

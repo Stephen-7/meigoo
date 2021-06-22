@@ -3,7 +3,6 @@
     <div class="topBar">
       <cpGlobalTitle :isBorderColor="true" :isTitle="'分享'"/>
     </div>
-
     <div class="list" v-show="dataArr.length !== 0">
       <cpGlobalPullRefresh>
         <template v-slot:item>
@@ -11,7 +10,6 @@
         </template>
       </cpGlobalPullRefresh>
     </div>
-
     <cpGlobalMessage :message="'message'" v-show="dataArr.length === 0"/>
   </div>
 </template>
