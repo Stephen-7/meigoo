@@ -51,7 +51,7 @@
       toPayment(){
         console.log(this.addressItem === 'object');
         // Toast('请选择商品');
-        // this.$router.push('/payment')
+        this.$router.push('/payment')
       }
     },
   }
