@@ -187,7 +187,7 @@
       //全选商品的选中按钮
       allChange() {
         this.allChecked = !this.allChecked;
-        console.log(this.allChecked = !this.allChecked);
+        // console.log(this.allChecked = !this.allChecked);
         this.allChecked ? this.listArr.forEach((item) => this.shopTrue(item)) : this.listArr.forEach((item) => this.shopFalse(item))
       },
 

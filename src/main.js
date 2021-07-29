@@ -9,7 +9,13 @@ import './plugin/mock'
 import '../src/assets/style/global.css'
 import animate from "animate.css"
 
-Vue.use(animate)
+Vue.use(animate);
+
+
+import BaiduMap from 'vue-baidu-map'
+Vue.use(BaiduMap, {
+  ak: "eAIzd3RVU0foU9RSTLvDGR2FCy0Gjbi2"
+});
 
 Vue.config.productionTip = false;
 new Vue({
@@ -18,4 +24,4 @@ new Vue({
   router,
   components: {App},
   template: '<App/>'
-})
+});
